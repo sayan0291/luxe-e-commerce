@@ -1,31 +1,61 @@
-import { FadeUp, ImageCard, Header } from "../components"
+import { FadeUp, ImageCard, Header, ProductCard } from "../components"
 
 export const Hero = () => {
     return(
-        <>
-            <section className="hero-section">
+        <main className="hero-section">
+            <section className="hero-section-1">
                 <div className="absolute inset-0 z-0">
-                    <img className="w-full h-full object-cover" data-alt="..." src="/enhanced_unnamed.png"/>
+                    <img className="w-full h-full object-cover" data-alt="hero section 1 image" src="/enhanced_unnamed.png"/>
                 </div>
                 <div>
                     <FadeUp className="reveal active bg-[rgba(0,0,0,0.4)]/95 rounded p-5 sm:p-lg md:p-xl md:w-[70%] lg:w-[50%] mt-10">
-                        <h1 className="font-display text-display-mobile md:text-display text-primary mb-md leading-[1.1]">The Art of <br/>Curated Living</h1>
-                        <p className="font-body-lg text-body-lg text-surface mb-lg">Discover our latest collection of architectural silhouettes and elevated essentials designed for the modern individual.</p>
-                        <a className="inline-block bg-yellow-900 text-on-primary px-xl py-md font-label-md text-label-md uppercase tracking-[0.2em] hover:opacity-90 transition-opacity" href="#featured">Shop Now</a>
+                        <h2>The Art of <br/>Curated Living</h2>
+                        <p>Discover our latest collection of architectural silhouettes and elevated essentials designed for the modern individual.</p>
+                        <a>Shop Now</a>
                     </FadeUp>
                 </div>
             </section>
-                <section className="py-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="featured">
-                    <Header title="Featured Collections" />
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter h-[800px] md:h-[600px]">
-                        <FadeUp className="md:col-span-8 relative group overflow-hidden" >
-                            <ImageCard varient="newArrivals"  />
-                        </FadeUp>
-                        <FadeUp className="md:col-span-4 relative group overflow-hidden" >
-                            <ImageCard varient="bestSellers" />
-                        </FadeUp>
+            <section className="hero-section-2" id="featured">
+                <Header title="Featured Collections" />
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter h-[800px] md:h-[600px]">
+                    <FadeUp className="md:col-span-8 relative group overflow-hidden" >
+                        <ImageCard varient="newArrivals"  />
+                    </FadeUp>
+                    <FadeUp className="md:col-span-4 relative group overflow-hidden" >
+                        <ImageCard varient="bestSellers" />
+                    </FadeUp>
+                </div>
+            </section>
+            <section className="hero-section-3">
+                <div className="max-w-container-max mx-auto">
+                    <div className="flex justify-between items-end mb-lg reveal">
+                        <div>
+                            <Header title="Trending Now" />
+                            <p className="font-body-md text-body-md text-secondary mt-base">The pieces everyone is talking about.</p>
+                        </div>
+                        <a className="hidden md:block font-label-md text-label-md text-primary uppercase border-b border-primary hover:opacity-70" href="#">View All</a>
                     </div>
-                </section>
-        </>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+                    {/* <!-- Product 1 --> */}
+                        <ProductCard varient="trendingProducts" product="satinSlipDress" />
+                    {/* <!-- Product 2 --> */}
+                        <ProductCard varient="trendingProducts" product="structuredBlazer" />
+                    {/* <!-- Product 3 --> */}
+                        <ProductCard varient="trendingProducts" product="signatureTote" />
+                    {/* <!-- Product 4 --> */}
+                        <ProductCard varient="trendingProducts" product="atelierSneaker" />
+                    </div>
+                </div>
+            </section>
+            <section className="hero-section-4">
+                <div className="max-w-2xl mx-auto reveal">
+                <span>Our Philosophy</span>
+                <blockquote>"Luxury is not about abundance, it is about the perfection of the few things that truly matter."
+                            </blockquote>
+                <div className="h-[1px] w-12 bg-primary mx-auto mb-lg"></div>
+                    <a className="font-label-md text-label-md text-primary uppercase tracking-widest border-b border-primary hover:opacity-70 transition-opacity" href="#">Read the Lookbook</a>
+                </div>
+            </section>
+        </main>
     )
 }

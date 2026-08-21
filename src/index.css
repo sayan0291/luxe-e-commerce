@@ -132,10 +132,13 @@
 
 @layer base{
   body {
-    @apply bg-surface text-on-surface font-body-md antialiased;
+    @apply bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container;
   }
   h1 {
     @apply font-display text-display-mobile md:text-display text-primary dark:text-on-primary tracking-tighter;
+  }
+  footer {
+    @apply w-full py-xl bg-surface-container-lowest border-t border-outline-variant;
   }
 }
 
@@ -171,16 +174,72 @@
   }
 
   .hero-section {
-    @apply relative h-screen flex w-full justify-end px-2 sm:px-5 overflow-hidden;
+    .hero-section-1 {
+      @apply relative h-screen flex w-full justify-end px-2 sm:px-5 overflow-hidden;
 
-    & > :nth-child(2) {
-      @apply relative z-10 flex lg:justify-end items-center h-full;
+      & > :nth-child(2) {
+        @apply relative z-10 flex lg:justify-end items-center h-full;
+        
+        & > div {
+          & > h2 {
+            @apply font-display text-display-mobile md:text-display text-primary mb-md leading-[1.1];
+          }
 
-      /* & > div {
-        @apply reveal active bg-[rgba(0,0,0,0.4)]/95 rounded p-5 sm:p-lg md:p-xl md:w-[70%] lg:w-[50%];
-      } */
+          & > p {
+            @apply font-body-lg text-body-lg text-surface mb-lg;
+          }
+          & > a {
+            @apply inline-block bg-yellow-900 text-on-primary px-xl py-md font-label-md text-label-md uppercase tracking-[0.2em] hover:opacity-90 transition-opacity;
+          }
+        }
+      }
+    }
+
+    .hero-section-2 {
+      @apply py-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto;
+    }
+
+    .hero-section-3 {
+      @apply py-xl bg-surface-container-low px-margin-mobile md:px-margin-desktop;
+    }
+
+    .hero-section-4 {
+      @apply py-xl text-center px-margin-mobile;
+
+      & > :nth-child(1) {
+        &  > span {
+          @apply font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em] block mb-md;
+        }
+
+        & > blockquote {
+          @apply font-display text-headline-lg-mobile md:text-headline-lg text-primary italic mb-lg;
+        }
+      }
     }
   }
+
+  .footer-section-1 {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto;
+
+    & > div {
+
+      & > span {
+        @apply font-display text-headline-lg text-primary uppercase tracking-tighter;
+      }
+
+      & > h5 {
+        @apply font-label-md text-label-md text-primary uppercase mb-md;
+      }
+      & > ul {
+        @apply space-y-xs;
+      }
+      & li > a {
+        @apply font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline;
+      }
+    }
+
+  }
+
 }
 
 .material-symbols-outlined {
