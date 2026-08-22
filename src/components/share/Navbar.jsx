@@ -11,7 +11,7 @@ export const NavBar = () => (
         <header className="nav-bar">
             <nav>
                 <div className="flex-ic gap-xl">
-                    <h1>LUXE</h1>
+                    <NavLink to="/home" ><h1>LUXE</h1></NavLink>                    
                     <div className="hidden md:flex gap-md">
                         {navBtns.map((obj) => (
                             <NavLink

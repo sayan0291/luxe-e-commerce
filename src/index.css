@@ -240,6 +240,18 @@
 
   }
 
+  .collection-section {
+    @apply px-margin-mobile md:px-margin-desktop py-gutter;
+
+    & > header {
+      @apply my-xl text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-outline-variant/50 pb-lg gap-sm;
+    }
+
+    & .collection-section-body {
+      @apply grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[300px] md:auto-rows-[400px];
+    }
+  }
+
 }
 
 .material-symbols-outlined {

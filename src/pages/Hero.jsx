@@ -3,12 +3,12 @@ import { FadeUp, ImageCard, Header, ProductCard } from "../components"
 export const Hero = () => {
     return(
         <main className="hero-section">
-            <section className="hero-section-1">
+            <section className="hero-section-1 pt-15">
                 <div className="absolute inset-0 z-0">
                     <img className="w-full h-full object-cover" data-alt="hero section 1 image" src="/enhanced_unnamed.png"/>
                 </div>
                 <div>
-                    <FadeUp className="reveal active bg-[rgba(0,0,0,0.4)]/95 rounded p-5 sm:p-lg md:p-xl md:w-[70%] lg:w-[50%] mt-10">
+                    <FadeUp className="reveal active bg-[rgba(0,0,0,0.4)]/95 rounded p-5 sm:p-lg md:p-xl md:w-[70%] lg:w-[50%]">
                         <h2>The Art of <br/>Curated Living</h2>
                         <p>Discover our latest collection of architectural silhouettes and elevated essentials designed for the modern individual.</p>
                         <a>Shop Now</a>
@@ -16,7 +16,7 @@ export const Hero = () => {
                 </div>
             </section>
             <section className="hero-section-2" id="featured">
-                <Header title="Featured Collections" />
+                <Header className="mb-lg" title="Featured Collections" />
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter h-[800px] md:h-[600px]">
                     <FadeUp className="md:col-span-8 relative group overflow-hidden" >
                         <ImageCard varient="newArrivals"  />
@@ -30,7 +30,7 @@ export const Hero = () => {
                 <div className="max-w-container-max mx-auto">
                     <div className="flex justify-between items-end mb-lg reveal">
                         <div>
-                            <Header title="Trending Now" />
+                            <Header className="mb-gutter" title="Trending Now" />
                             <p className="font-body-md text-body-md text-secondary mt-base">The pieces everyone is talking about.</p>
                         </div>
                         <a className="hidden md:block font-label-md text-label-md text-primary uppercase border-b border-primary hover:opacity-70" href="#">View All</a>
