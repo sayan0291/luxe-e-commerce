@@ -1,5 +1,5 @@
 import { Routes,Route,Navigate } from 'react-router-dom';
-import { Hero ,Collections, UnderConstruction} from './pages';
+import { Hero ,Collections, UnderConstruction, PageNotFound} from './pages';
 import { MainLayouts } from './components/layouts/MainLayouts';
 
 export default function App() {
@@ -11,10 +11,11 @@ export default function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/home" element={<Hero />} />
           <Route path="/collections" element={<Collections />} />
+          <Route path="/collection" element={<UnderConstruction />} />
         </Route>
         <Route>
-          <Route path="/under-construction" element={<UnderConstruction />} />
-          <Route path="*" element={<Navigate to="/under-construction" replace />} />
+          <Route path="/not-found" element={<PageNotFound />} />
+          <Route path="*" element={<Navigate to="/not-found" replace />} />
         </Route>
       </Routes>
     </>
