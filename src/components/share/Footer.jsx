@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export const Footer = () => {
     return(
         <>
@@ -10,19 +12,19 @@ export const Footer = () => {
                     <div>
                         <h5>Shop</h5>
                         <ul>
-                        <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Best Sellers</a></li>
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Sale</a></li>
+                        <li><NavLink to="new-arrivals">New Arrivals</NavLink></li>
+                        <li><NavLink to="best-sellers">Best Sellers</NavLink></li>
+                        <li><NavLink to="collections">Collections</NavLink></li>
+                        <li><NavLink to="sale">Sale</NavLink></li>
                         </ul>
                     </div>
                     <div>
                         <h5>Information</h5>
                         <ul>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Shipping &amp; Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><NavLink to="sustainability">Sustainability</NavLink></li>
+                        <li><NavLink to="shipping">Shipping &amp; Returns</NavLink></li>
+                        <li><NavLink to="policy">Privacy Policy</NavLink></li>
+                        <li><NavLink to="terms">Terms of Service</NavLink></li>
                         </ul>
                     </div>
                     <div>

@@ -8,7 +8,7 @@ export const Hero = () => {
                     <img className="w-full h-full object-cover" data-alt="hero section 1 image" src="/enhanced_unnamed.png"/>
                 </div>
                 <div>
-                    <FadeUp className="reveal active bg-[rgba(0,0,0,0.4)]/95 rounded p-5 sm:p-lg md:p-xl md:w-[70%] lg:w-[50%]">
+                    <FadeUp className="blur-card md:w-[70%] lg:w-[50%]">
                         <h2>The Art of <br/>Curated Living</h2>
                         <p>Discover our latest collection of architectural silhouettes and elevated essentials designed for the modern individual.</p>
                         <a>Shop Now</a>
