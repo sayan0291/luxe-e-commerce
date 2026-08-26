@@ -178,9 +178,16 @@
     }
   }
 
+  .section-align {
+    @apply relative h-screen flex w-full justify-end px-2 sm:px-5 overflow-hidden;
+  }
+
+  .img-section {
+      @apply w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105;
+    }
+
   .hero-section {
     .hero-section-1 {
-      @apply relative h-screen flex w-full justify-end px-2 sm:px-5 overflow-hidden;
 
       & > :nth-child(2) {
         @apply relative z-10 flex lg:justify-end items-center h-full;
@@ -192,9 +199,6 @@
 
           & > p {
             @apply font-body-lg text-body-lg text-surface mb-lg;
-          }
-          & > a {
-            @apply inline-block bg-blue-900 text-on-primary px-xl py-md font-label-md text-label-md uppercase tracking-[0.2em] hover:opacity-90 transition-opacity;
           }
         }
       }
@@ -256,6 +260,56 @@
       @apply grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[300px] md:auto-rows-[400px];
     }
   }
+
+  .lookbook-section {
+    @apply flex-grow pt-15;
+
+    span {
+      @apply font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-xs block;
+    }
+    h2 {
+      @apply font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-md tracking-tight;
+    }
+    p {
+      @apply font-body-md text-body-md text-on-surface-variant mb-lg leading-relaxed;
+    }
+
+    .lookbook-section-1{
+      
+      & > :nth-child(3) {
+        @apply relative z-10 flex lg:justify-end items-center h-full;
+      }
+    }
+
+    & > .lookbook-section-2 {
+      @apply max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-[120px];
+
+      & > div {
+        @apply grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-gutter items-center;
+
+        & > :nth-child(1) {
+          @apply md:col-span-4 md:col-start-2 order-2 md:order-1 flex flex-col justify-center pr-md;
+        }
+
+        & > :nth-child(2) {
+          @apply md:col-span-6 md:col-start-7 order-1 md:order-2 h-[614px] md:h-[800px] w-full overflow-hidden;
+        }
+      }
+    }
+
+    & > .lookbook-section-4 {
+      @apply max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-[120px];
+
+      & > div {
+        @apply grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-gutter;
+
+        & > :nth-child(3) {
+          @apply md:col-span-4 md:col-start-2 mt-md md:mt-xl flex-jc flex-col;
+        }
+      }
+    }
+  }
+
 
 }
 

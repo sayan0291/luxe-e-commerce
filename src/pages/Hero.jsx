@@ -1,17 +1,17 @@
-import { FadeUp, ImageCard, Header, ProductCard } from "../components"
+import { FadeUp, ImageCard, Header, ProductCard, Button, SimpleImageCard } from "../components"
 
 export const Hero = () => {
     return(
         <main className="hero-section">
-            <section className="hero-section-1 pt-15">
-                <div className="absolute inset-0 z-0">
-                    <img className="w-full h-full object-cover" data-alt="hero section 1 image" src="/enhanced_unnamed.png"/>
-                </div>
+            <section className="hero-section-1 section-align pt-15">
+                <SimpleImageCard imgSrc="/enhanced_unnamed.png" />
                 <div>
                     <FadeUp className="blur-card md:w-[70%] lg:w-[50%]">
                         <h2>The Art of <br/>Curated Living</h2>
                         <p>Discover our latest collection of architectural silhouettes and elevated essentials designed for the modern individual.</p>
-                        <a>Shop Now</a>
+                        <Button varient="homeBtn" >
+                            Shop Now
+                        </Button>
                     </FadeUp>
                 </div>
             </section>

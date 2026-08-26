@@ -56,7 +56,47 @@ const imageCardDetails = {
         title: "Core Essentials",
         description: "The foundation.",
         altData: "A meticulously styled flat lay of luxury wardrobe essentials on a stark white background. The composition includes a crisp white cotton shirt, a perfectly tailored black leather belt, and minimalist silver jewelry. The lighting is flat and bright, creating a clean, graphic, and highly organized visual aesthetic typical of high-end catalog imagery."
+    },
+    lookbook: {
+        product1: {
+            imgSrc: "/products/black_blazzer.png",
+            title: "Outerwear",
+            description: "Structural Wool Coat",
+            price: "$1250",
+            altData: "A clean, flat-lay style product shot of a structured, black wool coat with asymmetric lapels. The garment is laid out perfectly flat against a pristine white background. The lighting is bright and shadowless to highlight the high-quality texture of the wool and the precise tailoring of the seams. The image is strictly utilitarian yet highly premium."
+        },
+        product2: {
+            imgSrc: "/products/white_pant.png",
+            title: "BOTTOMS",
+            description: "Pleated Wide Trouser",
+            price: "$680",
+            altData: "A clean, flat-lay style product shot of a pair of wide-leg, high-waisted trousers in a soft, light grey wool blend. The trousers are perfectly pressed and laid against a pristine white background. Bright, shadowless lighting emphasizes the drape of the fabric and the crispness of the pleats. The aesthetic is extremely clean, minimalist, and luxury-focused."
+        },
+        product3: {
+            imgSrc: "/products/white_shirt.png",
+            title: "TOPS",
+            description: "The foundation.",
+            price: "$460",
+            altData: "A clean, flat-lay style product shot of a minimalist, crisp white poplin button-down shirt with an exaggerated collar and hidden placket. The shirt is laid flat on a pristine white background. The bright, even lighting showcases the smoothness of the cotton fabric and the sharp, geometric lines of the garment's construction. The image conveys pure, unadulterated minimalist luxury."
+        },
+        product4: {
+            imgSrc: "/products/dress-photo.png",
+            title: "Outerwear",
+            description: "The foundation.",
+            price: "$340.00",
+            altData: "A studio shot of a minimalist black silk slip dress draped elegantly on a slender mannequin against a warm beige background. The lighting is high-key and soft, emphasizing the fluidity and sheen of the silk fabric. The image is clean, high-end, and focused entirely on the garment's silhouette and premium material."
+        },
     }
+}
+
+export const SimpleImageCard = ({imgSrc}) => {
+    return(
+        <>
+            <div className="absolute inset-0 z-0">
+                <img className="w-full h-full" data-alt="hero section 1 image" src={imgSrc} />
+            </div>
+        </>
+    )
 }
 
 export const ImageCard = ({varient="newArrivals"}) => {
@@ -72,6 +112,24 @@ export const ImageCard = ({varient="newArrivals"}) => {
         </div>
     </>
  )
+}
+
+export const DetailImageCard = ({varient="lookbook",product="product1"}) => {
+
+    const { imgSrc,title,description,price,altData } = imageCardDetails[varient][product];
+    return(
+        <div class="flex-none w-[280px] md:w-[350px] snap-start group cursor-pointer">
+            <div class="w-full aspect-[3/4] bg-surface-container mb-sm overflow-hidden relative">
+            <img class="img-section" data-alt={altData} src={imgSrc} />
+            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+            </div>
+            <div class="flex flex-col">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-1">{title}</span>
+            <span class="font-body-md text-body-md text-primary font-medium mb-1">{description}</span>
+            <span class="font-body-md text-body-md text-on-surface-variant">{price}</span>
+            </div>
+        </div>
+    )
 }
 
 export const ProductCard = ({varient="trendingProducts",product="satinSlipDress"}) => {

@@ -22,6 +22,8 @@ export default function App() {
           <Route path="/shipping" element={<UnderConstruction />} />
           <Route path="/policy" element={<UnderConstruction />} />
           <Route path="/terms" element={<UnderConstruction />} />
+          <Route path="/shop-trailoring" element={<UnderConstruction />} />
+          <Route path="/shop-now" element={<UnderConstruction />} />
         </Route>
         <Route>
           <Route path="/not-found" element={<PageNotFound />} />

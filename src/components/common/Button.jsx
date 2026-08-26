@@ -1,9 +1,9 @@
 
 const varients = {
-    backHome: "cursor-pointer font-semibold overflow-hidden z-100 border border-green-500 group px-8 py-2"
+    homeBtn: "inline-block bg-blue-900 text-on-primary px-xl py-md font-label-md text-label-md uppercase tracking-[0.2em] hover:opacity-90 transition-opacity"
 }
 
-export const Button = ({className,children,varient="backHome"}) => {
+export const Button = ({className,children,varient="homeBtn"}) => {
     return(
         <>
             <button className={`${varients[varient]} ${className}`}>
