@@ -71,10 +71,10 @@ export const Lookbook = () => {
                         <h3 class="font-headline-md text-headline-md text-primary tracking-tight">Featured Pieces</h3>
                         <div class="flex space-x-sm">
                         <button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
-                        <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                        <span class="material-symbols-outlined text-sm m-0" data-icon="arrow_back">arrow_back</span>
                         </button>
                         <button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
-                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                        <span class="material-symbols-outlined text-sm m-0" data-icon="arrow_forward">arrow_forward</span>
                         </button>
                         </div>
                     </div>
