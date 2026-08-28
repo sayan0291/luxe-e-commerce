@@ -1,16 +1,13 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { ProductCardDetail, Header } from "../components"
+import { ProductCardDetail, Header, Button } from "../components"
 import { Products } from "../data/productData"
+import { allData } from "../api/apiHandle"
 
 export const NewArrivals = () => {
     const [showCount,setShowCount] =  useState(8);
     const [btn,setbtn] =  useState(true);
-
-    const handleClick = () => {
-        setShowCount(Products.length);
-        setbtn(!btn);
-    }
+    {allData()}
 
     return(
         <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-lg">
@@ -42,11 +39,15 @@ export const NewArrivals = () => {
             {
                 btn ? (
                     <div className="flex-jc-ic mt-lg mb-xl">
-                        <button className="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded-DEFAULT hover:opacity-90 transition-opacity duration-200" onClick={handleClick} >
+                        <Button className="bg-red-500" varient="homeBtn" onClick={()=> {setShowCount(Products.length);setbtn(!btn);}} >
                                         Load More
-                        </button>
+                        </Button>
                     </div>
-                ) : ""
+                ) : (<div className="flex-jc-ic mt-lg mb-xl">
+                        <Button className="bg-gray-800" varient="homeBtn" onClick={() => {setShowCount(8);setbtn(!btn);}} >
+                                        Load less
+                        </Button>
+                    </div>)
             }
         </main>
     )

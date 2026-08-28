@@ -18,7 +18,7 @@ export const Collections = () => {
             <div className="collection-section-body">
                 <button className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-surface-container flex items-end">
                     <ImageCard varient="minimalists" />
-                    <span class="absolute right-5 bottom-5 material-symbols-outlined text-sm text-surface" data-icon="arrow_forward">arrow_forward</span>
+                    <span className="absolute right-5 bottom-5 material-symbols-outlined text-sm text-surface" data-icon="arrow_forward">arrow_forward</span>
                 </button>
                 <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end">
                     <ImageCard varient="urbanArchive" />
