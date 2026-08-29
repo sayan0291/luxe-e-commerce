@@ -11,12 +11,12 @@ export const SimpleImageCard = ({imgSrc}) => {
     )
 }
 
-export const ImageCard = ({varient="newArrivals"}) => {
+export const ImageCard = ({className="w-full h-full",varient="newArrivals"}) => {
     const {imgSrc,title,description,altData} = imageCardDetails[varient];
  return(
     <>
-        <div className="w-full h-full">
-            <img className="w-full h-full object-cover transition-transform duration-700" data-alt={altData} src={imgSrc}/>
+        <div className="w-full h-full flex-jc-ic">
+            <img className={`${className} object-cover transition-transform duration-700`} data-alt={altData} src={imgSrc}/>
         </div>
         <div className="absolute inset-0 bg-black/20 flex flex-col justify-end p-lg opacity-100 group-hover:bg-black/30 transition-all">
             <h3 className="font-display text-headline-lg text-white uppercase mb-base">{title}</h3>

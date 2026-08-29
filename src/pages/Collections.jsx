@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom"
 import { FadeUp, Header, ImageCard } from "../components"
 
 export const Collections = () => {
+
+    const navigate =  useNavigate();
+
+    const handleClick = () => {
+        navigate("/shoping")
+    }
+
     return(
         <main className="collection-section">
             <header>
@@ -16,15 +24,27 @@ export const Collections = () => {
             </header>
 
             <div className="collection-section-body">
-                <button className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-surface-container flex items-end">
-                    <ImageCard varient="minimalists" />
+                <button className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick} >
+                    <ImageCard varient="womensWear" />
                     <span className="absolute right-5 bottom-5 material-symbols-outlined text-sm text-surface" data-icon="arrow_forward">arrow_forward</span>
                 </button>
-                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end">
-                    <ImageCard varient="urbanArchive" />
+                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                    <ImageCard varient="mensWear" />
                 </button>
-                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end">
-                    <ImageCard varient="coreEssentials" />
+                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                    <ImageCard className="h-[100%]" varient="watches" />
+                </button>
+                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                    <ImageCard className="h-[50%]" varient="laptop" />
+                </button>
+                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                    <ImageCard varient="kidswear" />
+                </button>
+                <button className="md:col-span-2 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                    <ImageCard varient="mensFootWear" />
+                </button>
+                <button className="md:col-span-2 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                    <ImageCard varient="womensFootWear" />
                 </button>
             </div>
         </main>

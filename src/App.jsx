@@ -14,7 +14,7 @@ export default function App() {
           <Route path="/cart" element={<UnderConstruction />} />
           <Route path="/product-details" element={<UnderConstruction />} />
           <Route path="/user" element={<UnderConstruction />} />
-          <Route path="/about" element={<UnderConstruction />} />
+          <Route path="/shoping" element={<UnderConstruction />} />
           <Route path="/lookbook" element={<Lookbook />} />
           <Route path="/sustainability" element={<UnderConstruction />} />
           <Route path="/new-arrivals" element={<NewArrivals />} />

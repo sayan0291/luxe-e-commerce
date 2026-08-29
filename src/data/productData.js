@@ -43,25 +43,49 @@ export const imageCardDetails = {
         "Close-up detail of a pair of minimalist white leather sneakers with a slim profile. The sneakers are resting on a reflective black glass surface, creating a mirror effect. The lighting is cool-toned and architectural, highlighting the clean stitch lines and the matte finish of the leather. High-contrast, premium, and contemporary.",
     },
   },
-  minimalists: {
+  womensWear: {
     imgSrc: "/minimalists.png",
-    title: "New Arrivals",
-    description: "Explore Edition 01",
+    title: "Womens Wear",
+    description: "Explore Edition",
     altData:
       "A striking high-fashion editorial photograph of a model wearing stark, minimalist structural clothing in pristine white and deep black. The setting is a bright, airy gallery space with concrete floors and soft, diffused natural light pouring in from large windows. The mood is serene, elevated, and quietly luxurious, emphasizing clean lines and perfect tailoring.",
   },
-  urbanArchive: {
+  mensWear: {
     imgSrc:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAcnHpe-NPvEr1pzSR2eqEKf6YA1Oxu-1UTZuLHfLyNiQNI9_ms3krKhCC8PeVcdndo84gM9VpH-OGrPA1GAZ_euQFMsr5OpN9Kd87ZMt01f0D_UiKuERgW9MYdRcTXNXmkE50GBvbyBZNoN5CTEiHTACNNXGHH7IywlUkHqHryUEYkWpP-JE5KDeC7LKlMO7jquXVIbHO9LLGQZ7i42HiZOWTlMCVnWmm0LYUPpHrphoFFZBvWUJolNw",
-    title: "Urban Archive",
+    title: "Mens Wear",
     description: "Utility redefined",
     altData:
       "A close-up fashion photography shot focusing on premium textured fabrics, specifically a heavy, dark charcoal wool blend coat. The lighting is moody and directional, highlighting the weave of the fabric and the sharp, structured collar. The aesthetic is modern urban utility mixed with high-end luxury, shot against a soft grey background.",
   },
-  coreEssentials: {
-    imgSrc: "/coreEssentials.png",
-    title: "Core Essentials",
+  watches: {
+    imgSrc: "/analog_watch.png",
+    title: "Watches",
     description: "The foundation.",
+    altData:
+      "A meticulously styled flat lay of luxury wardrobe essentials on a stark white background. The composition includes a crisp white cotton shirt, a perfectly tailored black leather belt, and minimalist silver jewelry. The lighting is flat and bright, creating a clean, graphic, and highly organized visual aesthetic typical of high-end catalog imagery.",
+  },
+  laptop: {
+    imgSrc: "/macbook_pro.png",
+    title: "laptop",
+    altData:
+      "A meticulously styled flat lay of luxury wardrobe essentials on a stark white background. The composition includes a crisp white cotton shirt, a perfectly tailored black leather belt, and minimalist silver jewelry. The lighting is flat and bright, creating a clean, graphic, and highly organized visual aesthetic typical of high-end catalog imagery.",
+  },
+  kidswear: {
+    imgSrc: "/kids_wear.png",
+    title: "Kids Wear",
+    altData:
+      "A meticulously styled flat lay of luxury wardrobe essentials on a stark white background. The composition includes a crisp white cotton shirt, a perfectly tailored black leather belt, and minimalist silver jewelry. The lighting is flat and bright, creating a clean, graphic, and highly organized visual aesthetic typical of high-end catalog imagery.",
+  },
+  mensFootWear: {
+    imgSrc: "/mens_sneaker.png",
+    title: "Mens Footwear",
+    altData:
+      "A meticulously styled flat lay of luxury wardrobe essentials on a stark white background. The composition includes a crisp white cotton shirt, a perfectly tailored black leather belt, and minimalist silver jewelry. The lighting is flat and bright, creating a clean, graphic, and highly organized visual aesthetic typical of high-end catalog imagery.",
+  },
+  womensFootWear: {
+    imgSrc: "/womens_heels.png",
+    title: "womens Footwear",
     altData:
       "A meticulously styled flat lay of luxury wardrobe essentials on a stark white background. The composition includes a crisp white cotton shirt, a perfectly tailored black leather belt, and minimalist silver jewelry. The lighting is flat and bright, creating a clean, graphic, and highly organized visual aesthetic typical of high-end catalog imagery.",
   },

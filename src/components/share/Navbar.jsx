@@ -4,7 +4,7 @@ const navBtns = [
     {id:1,btnName: "Collections",to: "/collections"},
     {id:2,btnName: "New Arrivals",to: "/new-arrivals"},
     {id:3,btnName: "Lookbook",to: "/lookbook"},
-    {id:4,btnName: "About",to: "/about"},
+    {id:4,btnName: "Shoping",to: "/shoping"},
 ]
 
 export const NavBar = () => (
