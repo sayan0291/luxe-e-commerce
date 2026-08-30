@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import { FadeUp, ImageCard, Header, ProductCard, Button, SimpleImageCard } from "../components"
 
 export const Hero = () => {
@@ -53,7 +54,7 @@ export const Hero = () => {
                 <blockquote>"Luxury is not about abundance, it is about the perfection of the few things that truly matter."
                             </blockquote>
                 <div className="h-[1px] w-12 bg-primary mx-auto mb-lg"></div>
-                    <a className="font-label-md text-label-md text-primary uppercase tracking-widest border-b border-primary hover:opacity-70 transition-opacity" href="#">Read the Lookbook</a>
+                    <NavLink className="font-label-md text-label-md text-primary uppercase tracking-widest border-b border-primary hover:opacity-70 transition-opacity" to="/lookbook">Read the Lookbook</NavLink>
                 </div>
             </section>
         </main>

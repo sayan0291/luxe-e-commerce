@@ -12,7 +12,7 @@ export const Lookbook = () => {
                         <FadeUp className="blur-card">
                             <h1 className="font-display text-display-mobile md:text-display tracking-tighter mb-sm uppercase">Autumn/Winter</h1>
                             <p className="font-body-lg text-body-lg text-on-primary/90 mb-lg w-[70%]">A study in structural elegance and stark contrast. Explore the new silhouette.</p>
-                            <Button varient="homeBtn" >
+                            <Button varient="homeBtn" className="!bg-black" >
                                 <NavLink to="/shop-now" >
                                     Shop Now
                                 </NavLink>

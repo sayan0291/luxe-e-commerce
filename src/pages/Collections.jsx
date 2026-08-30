@@ -25,14 +25,14 @@ export const Collections = () => {
 
             <div className="collection-section-body">
                 <button className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick} >
-                    <ImageCard varient="womensWear" />
+                    <ImageCard varient="womensWear" className3="self-start" />
                     <span className="absolute right-5 bottom-5 material-symbols-outlined text-sm text-surface" data-icon="arrow_forward">arrow_forward</span>
                 </button>
                 <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
-                    <ImageCard varient="mensWear" />
+                    <ImageCard varient="mensWear" className3="self-start" />
                 </button>
                 <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
-                    <ImageCard className="h-[100%]" varient="watches" />
+                    <ImageCard className="h-[100%]" className3="self-start" varient="watches" />
                 </button>
                 <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
                     <ImageCard className="h-[50%]" varient="laptop" />
@@ -41,10 +41,10 @@ export const Collections = () => {
                     <ImageCard varient="kidswear" />
                 </button>
                 <button className="md:col-span-2 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
-                    <ImageCard varient="mensFootWear" />
+                    <ImageCard varient="mensFootWear" className="h-[70%]" className2="p-0" />
                 </button>
                 <button className="md:col-span-2 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
-                    <ImageCard varient="womensFootWear" />
+                    <ImageCard varient="womensFootWear" className="h-[70%]" className2="p-0" />
                 </button>
             </div>
         </main>

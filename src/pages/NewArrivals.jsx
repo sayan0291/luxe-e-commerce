@@ -17,10 +17,6 @@ export const NewArrivals = () => {
                     <p className="text-secondary font-body-md">Curated seasonal staples and avant-garde silhouettes. Designed for the modern minimalist.</p>
                 </div>
                 <div className="mt-sm md:mt-0 flex items-center gap-sm">
-                {/* <!-- Filters / Sort --> */}
-                <button className="flex items-center gap-base text-label-md font-label-md text-primary border border-outline-variant px-sm py-xs rounded-DEFAULT hover:border-primary transition-colors duration-200">
-                <span className="material-symbols-outlined text-[18px]">tune</span> Filters
-                                </button>
                 <select className="text-label-md font-label-md text-primary border border-outline-variant px-sm py-xs rounded-DEFAULT bg-transparent focus:ring-0 focus:border-primary cursor-pointer hover:border-primary transition-colors duration-200 appearance-none pr-8 relative">
                 <option>Sort: Latest</option>
                 <option>Price: High to Low</option>

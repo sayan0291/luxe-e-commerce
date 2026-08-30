@@ -1,5 +1,5 @@
 import { Routes,Route,Navigate } from 'react-router-dom';
-import { Hero ,Collections, UnderConstruction, PageNotFound, Lookbook, NewArrivals} from './pages';
+import { Hero ,Collections, UnderConstruction, PageNotFound, Lookbook, NewArrivals,Shoping} from './pages';
 import { MainLayouts } from './components/layouts/MainLayouts';
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
           <Route path="/cart" element={<UnderConstruction />} />
           <Route path="/product-details" element={<UnderConstruction />} />
           <Route path="/user" element={<UnderConstruction />} />
-          <Route path="/shoping" element={<UnderConstruction />} />
+          <Route path="/shoping" element={<Shoping />} />
           <Route path="/lookbook" element={<Lookbook />} />
           <Route path="/sustainability" element={<UnderConstruction />} />
           <Route path="/new-arrivals" element={<NewArrivals />} />
