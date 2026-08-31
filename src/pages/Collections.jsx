@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom"
-import { FadeUp, Header, ImageCard } from "../components"
+import { FadeUp, Header, ImageCard, Button } from "../components"
 
 export const Collections = () => {
 
     const navigate =  useNavigate();
 
-    const handleClick = () => {
-        navigate("/shoping")
+    const handleClick = (category) => {
+        navigate(`/shoping?category=${category}`)
     }
 
     return(
@@ -24,28 +24,28 @@ export const Collections = () => {
             </header>
 
             <div className="collection-section-body">
-                <button className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick} >
+                <Button varient="categoryBtn" className="md:col-span-8 md:row-span-2 " onClick={() => handleClick('womens-wear')} >
                     <ImageCard varient="womensWear" className3="self-start" />
                     <span className="absolute right-5 bottom-5 material-symbols-outlined text-sm text-surface" data-icon="arrow_forward">arrow_forward</span>
-                </button>
-                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                </Button>
+                <Button varient="categoryBtn" className="md:col-span-4 md:row-span-1" onClick={() => handleClick('mens-wear')}>
                     <ImageCard varient="mensWear" className3="self-start" />
-                </button>
-                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                </Button>
+                <Button varient="categoryBtn" className="md:col-span-4 md:row-span-1" onClick={() => handleClick('watches')}>
                     <ImageCard className="h-[100%]" className3="self-start" varient="watches" />
-                </button>
-                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                </Button>
+                <Button varient="categoryBtn" className="md:col-span-4 md:row-span-1" onClick={() => handleClick('laptop')}>
                     <ImageCard className="h-[50%]" varient="laptop" />
-                </button>
-                <button className="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                </Button>
+                <Button varient="categoryBtn" className="md:col-span-4 md:row-span-1" onClick={() => handleClick('kids-wear')}>
                     <ImageCard varient="kidswear" />
-                </button>
-                <button className="md:col-span-2 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                </Button>
+                <Button varient="categoryBtn" className="md:col-span-2 md:row-span-1" onClick={() => handleClick('mens-footwear')}>
                     <ImageCard varient="mensFootWear" className="h-[70%]" className2="p-0" />
-                </button>
-                <button className="md:col-span-2 md:row-span-1 group relative overflow-hidden bg-surface-container flex items-end" onClick={handleClick}>
+                </Button>
+                <Button varient="categoryBtn" className="md:col-span-2 md:row-span-1" onClick={() => handleClick('womens-footwear')}>
                     <ImageCard varient="womensFootWear" className="h-[70%]" className2="p-0" />
-                </button>
+                </Button>
             </div>
         </main>
     )

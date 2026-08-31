@@ -1,5 +1,24 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Button } from "./Button";
+
+const category = [
+  {id:1,name: "Mens Ware",value: "mensware"},
+  {id:2,name: "Womens Ware",value: "womensware"},
+  {id:3,name: "Watches",value: "watches"},
+  {id:4,name: "Laptop",value: "laptop"},
+  {id:5,name: "Kids Ware",value: "kidsware"},
+  {id:6,name: "Mens Footware",value: "mensfootware"},
+  {id:7,name: "Womens Footware",value: "womensfootware"},
+]
+
+const size = [
+  {id: 1,name: "XS",valeu: "xs"},
+  {id: 2,name: "S",valeu: "s"},
+  {id: 3,name: "M",valeu: "m"},
+  {id: 4,name: "L",valeu: "l"},
+  {id: 5,name: "XL",valeu: "xl"}
+]
 
 export const Filter = ({ open, setOpen }) => {
   const [price,setPrice] = useState(1000)
@@ -23,57 +42,39 @@ export const Filter = ({ open, setOpen }) => {
             animate={{ x: 0 }}       // Slides into view
             exit={{ x: "100%" }}     // Slides back out when closed
             transition={{ type: "tween", duration: 0.3 }} // Smooth animation style
-            className="absolute top-0 right-0 h-full w-100 bg-white shadow-lg z-50 overflow-y-auto p-6"
+            className="filter-section"
           >
-            <div className="flex-bw-ic px-lg py-md border-b border-outline-variant/30">
-              <h2 className="font-headline-md text-primary uppercase tracking-wider">
+            <div className="filter-section-1">
+              <h2 className="filter-h3">
                 Filters
               </h2>
+              <h4 className="filter-h3 cursor-pointer" onClick={() => setOpen(false)}>
+                X
+              </h4>
             </div>
             <div className="flex-1 p-lg space-y-xl">
               <section>
-                <h3 className="font-label-md text-primary uppercase mb-md tracking-widest">
+                <h3 className="filter-h3">
                   Category
                 </h3>
                 <div className="flex flex-wrap gap-sm">
-                  <button className="px-md py-xs border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    Tops
-                  </button>
-                  <button className="px-md py-xs border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    Bottoms
-                  </button>
-                  <button className="px-md py-xs border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    Outerwear
-                  </button>
-                  <button className="px-md py-xs border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    Accessories
-                  </button>
+                  {
+                    category.map(obj => (<Button key={obj.id} varient="filterBtnCategory" >{obj.name}</Button>))
+                  }
                 </div>
               </section>
               <section>
-                <h3 className="font-label-md text-primary uppercase mb-md tracking-widest">
+                <h3 className="filter-h3">
                   Size
                 </h3>
                 <div className="grid grid-cols-5 gap-xs">
-                  <button className="aspect-square flex items-center justify-center border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    XS
-                  </button>
-                  <button className="aspect-square flex items-center justify-center border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    S
-                  </button>
-                  <button className="aspect-square flex items-center justify-center border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    M
-                  </button>
-                  <button className="aspect-square flex items-center justify-center border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    L
-                  </button>
-                  <button className="aspect-square flex items-center justify-center border border-outline-variant rounded-DEFAULT text-label-md hover:border-primary transition-colors">
-                    XL
-                  </button>
+                  {
+                    size.map(obj => (<Button key={obj.id} varient="filterBtnSize">{obj.name}</Button>))
+                  }
                 </div>
               </section>
               <section>
-                <h3 className="font-label-md text-primary uppercase mb-md tracking-widest">
+                <h3 className="filter-h3">
                   Price Range
                 </h3>
                 <div className="space-y-md">
@@ -95,12 +96,12 @@ export const Filter = ({ open, setOpen }) => {
               </section>
             </div>
             <div className="border-t border-outline-variant/30 grid grid-cols-2 gap-md">
-              <button className="py-sm text-label-md uppercase tracking-widest border border-outline-variant hover:bg-surface-container transition-colors rounded-DEFAULT">
+              <Button varient="clearBtn">
                 Clear All
-              </button>
-              <button className="py-sm text-label-md uppercase tracking-widest bg-primary text-on-primary hover:opacity-90 transition-opacity rounded-DEFAULT">
+              </Button>
+              <Button varient="applyBtn">
                 Apply Filters
-              </button>
+              </Button>
             </div>
           </motion.div>
         </>
