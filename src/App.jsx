@@ -1,11 +1,13 @@
 import { Routes,Route,Navigate } from 'react-router-dom';
 import { Hero ,Collections, UnderConstruction, PageNotFound, Lookbook, NewArrivals,Shoping} from './pages';
 import { MainLayouts } from './components/layouts/MainLayouts';
+import ProductProvider from './context/productContext/ProductContextProvider';
 
 export default function App() {
 
   return (
     <>
+    <ProductProvider>
       <Routes>
         <Route element={<MainLayouts />}>
           <Route path="/" element={<Hero />} />
@@ -31,6 +33,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/not-found" replace />} />
         </Route>
       </Routes>
+      </ProductProvider>
     </>
   )
 }

@@ -5,22 +5,6 @@ export const Lookbook = () => {
     return(
         <>
             <main className="lookbook-section">
-                <section className="section-align lookbook-section-1">
-                    <SimpleImageCard imgSrc="/full_suit.png" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                    <div>
-                        <FadeUp className="blur-card">
-                            <h1 className="font-display text-display-mobile md:text-display tracking-tighter mb-sm uppercase">Autumn/Winter</h1>
-                            <p className="font-body-lg text-body-lg text-on-primary/90 mb-lg w-[70%]">A study in structural elegance and stark contrast. Explore the new silhouette.</p>
-                            <Button varient="homeBtn" className="!bg-black" >
-                                <NavLink to="/shop-now" >
-                                    Shop Now
-                                </NavLink>
-                            </Button>
-                        </FadeUp>
-                    </div>
-                </section>
-
                 <section className="lookbook-section-2">
                     <div>
                     {/* <!-- Left Text Block --> */}

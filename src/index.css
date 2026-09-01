@@ -274,15 +274,8 @@
       @apply font-body-md text-body-md text-on-surface-variant mb-lg leading-relaxed;
     }
 
-    .lookbook-section-1{
-      
-      & > :nth-child(3) {
-        @apply relative z-10 flex lg:justify-end items-center h-full;
-      }
-    }
-
     & > .lookbook-section-2 {
-      @apply max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-[120px];
+      @apply max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xl;
 
       & > div {
         @apply grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-gutter items-center;
