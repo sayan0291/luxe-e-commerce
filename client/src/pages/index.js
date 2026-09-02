@@ -1,0 +1,7 @@
+export { Hero } from "./Hero.jsx"
+export { Collections } from "./Collections.jsx"
+export { UnderConstruction } from "./UnderConstruction.jsx"
+export { PageNotFound } from "./NotFound.jsx"
+export { Lookbook } from "./Lookbook.jsx"
+export { NewArrivals } from "./NewArrivals.jsx"
+export { Shoping } from "./Shoping.jsx"
