@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button, Filter, RapidApiProducts,Loader } from "../components";
 import useProduct from "../hooks/useProducts";
 
+export const categoryMapping = {
+        "mens-wear": "menswear",
+        "womens-wear": "womenswear",
+        "watches": "watches",
+        "laptop": "laptops",
+        "kids-wear": "kidswear",
+        "mens-footwear": "malefootwear",
+        "womens-footwear": "femalefootwear"
+};
+
 export const Shoping = () => {
+    const [searchParams] = useSearchParams()
     const [open,setOpen] = useState(false);
-    const [showCount,setShowCount] =  useState(10);
+    const [showCount,setShowCount] =  useState(gt10);
+    // const [category,setCategory] = useState();
     const [btn,setbtn] =  useState(true);
-    const { products,loading } = useProduct()
+    const { products,loading,category,setCategory } = useProduct()
+    const queryTerm = searchParams.get('category') || "mens-wear";
+
+    useEffect(() => {
+        if (categoryMapping[queryTerm]) {
+            setCategory(categoryMapping[queryTerm]);
+        }
+    },[queryTerm,setCategory])
     
     return(
         <div className="py-20">
