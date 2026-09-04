@@ -76,13 +76,23 @@ export const ProductCardDetail = ({obj}) => {
     )
 }
 
-export const RapidApiProducts = ({obj}) => {
+export const RapidApiProducts = ({obj,categoryParam}) => {
+    console.log(obj)
+    let className;
+
+    if(categoryParam === "laptops"){
+        className = ""
+    }else {
+        className = "aspect-[3/4]"
+    }
 
     return(
         <>
             <div className="group">
-                <div className="relative overflow-hidden mb-md aspect-[3/4]">
-                <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt={obj.Description} src={obj.Image} />
+                <div className={`relative overflow-hidden mb-md ${className}`}>
+                <div className="w-full h-full">
+                    <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt={obj.Description} src={obj.Image} />
+                </div>
                 <button className="absolute bottom-4 left-4 right-4 bg-white text-primary py-xs font-label-sm text-label-sm opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">QUICK ADD</button>
                 </div>
                 <h4 className="font-label-md text-label-md text-primary uppercase mb-base">{obj.Brand}</h4>

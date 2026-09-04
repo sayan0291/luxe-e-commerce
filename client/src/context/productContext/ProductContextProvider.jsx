@@ -7,10 +7,12 @@ const ProductProvider = ({children}) => {
     const [products,setProducts] = useState([]);
     const [loading,setLoading] = useState(true);
     const [error,setError] = useState(null);
+    const [categoryParam,setCategoryParam] = useState(null);
 
     const fetchProducts = async (category) => {
         setLoading(true);
         setError(null);
+        setCategoryParam(category)
 
         try {
             const data = await apiHandle(category);
@@ -29,7 +31,7 @@ const ProductProvider = ({children}) => {
 
 
     return(
-        <ProductContext.Provider value={{products,setProducts,loading,setLoading,error,fetchProducts}}>
+        <ProductContext.Provider value={{products,setProducts,loading,categoryParam,setLoading,error,fetchProducts}}>
             {children}
         </ProductContext.Provider>
     )

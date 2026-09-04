@@ -12,7 +12,7 @@ const category = [
   {id:7,name: "Womens Footware",value: "womensfootware"},
 ]
 
-const size = [
+export const size = [
   {id: 1,name: "XS",valeu: "xs"},
   {id: 2,name: "S",valeu: "s"},
   {id: 3,name: "M",valeu: "m"},

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button, Filter, RapidApiProducts,Loader } from "../components";
 import useProduct from "../hooks/useProducts";
-import { apiHandle } from "../api/apiHandle";
 
 export const categoryMapping = {
         "mens-wear": "menswear",
@@ -19,7 +18,7 @@ export const Shoping = () => {
     const [open,setOpen] = useState(false);
     const [showCount,setShowCount] =  useState(10);
     const [btn,setbtn] =  useState(true);
-    const { products,fetchProducts,loading,setLoading } = useProduct()
+    const { products,fetchProducts,loading,categoryParam } = useProduct()
     const queryTerm = searchParams.get('category') || "mens-wear";
 
 
@@ -44,7 +43,7 @@ export const Shoping = () => {
                 ) : products?.length ? (
                     products.slice(0,showCount).map((obj) => (
                         <div key={obj.id} className="group">
-                            <RapidApiProducts obj={obj} />
+                            <RapidApiProducts obj={obj} categoryParam={categoryParam} />
                         </div>
                     ))
                 ) : (
@@ -53,14 +52,14 @@ export const Shoping = () => {
             </div>
             <div className="flex-jc-ic gap-sm flex-col md:flex-row">
                 {
-                    products.length > 11 && (<div className="flex-jc-ic">
-   <Button className="bg-red-500" varient="homeBtn" onClick={()=> {setShowCount(prevCount => prevCount += 10);setbtn(false);}} >
+                    !loading && products.length > 11 && (<div className="flex-jc-ic">
+                                                <Button className="bg-red-500" varient="homeBtn" onClick={()=> {setShowCount(prevCount => prevCount += 10);setbtn(false);}} >
                                                                 Load More
                                                 </Button>
                                             </div>)
                 }
                 {
-                    !btn && (<div className="flex-jc-ic">
+                    showCount !== 10 && !btn && (<div className="flex-jc-ic">
                         <Button className="bg-gray-800" varient="homeBtn" onClick={() => {setShowCount(prevCount => prevCount -= 10);}} >
                                         Load less
                         </Button>
