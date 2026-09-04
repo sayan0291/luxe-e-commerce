@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const navBtns = [
+export const navBtns = [
     {id:1,btnName: "Collections",to: "/collections"},
     {id:2,btnName: "New Arrivals",to: "/new-arrivals"},
     {id:3,btnName: "Lookbook",to: "/lookbook"},

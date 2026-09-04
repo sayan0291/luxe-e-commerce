@@ -6,13 +6,11 @@ export const ProductContext = createContext();
 const ProductProvider = ({children}) => {
     const [products,setProducts] = useState([]);
     const [loading,setLoading] = useState(true);
-    const [category,setCategory] = useState();
     const [error,setError] = useState(null);
 
-    const fetchProducts = async () => {
+    const fetchProducts = async (category) => {
         setLoading(true);
         setError(null);
-        console.log(category)
 
         try {
             const data = await apiHandle(category);
@@ -27,11 +25,11 @@ const ProductProvider = ({children}) => {
 
     useEffect(() => {
         fetchProducts();
-    },[category])
+    },[])
 
 
     return(
-        <ProductContext.Provider value={{products,loading,error,category,setCategory}}>
+        <ProductContext.Provider value={{products,setProducts,loading,setLoading,error,fetchProducts}}>
             {children}
         </ProductContext.Provider>
     )

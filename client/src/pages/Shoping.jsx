@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button, Filter, RapidApiProducts,Loader } from "../components";
 import useProduct from "../hooks/useProducts";
+import { apiHandle } from "../api/apiHandle";
 
 export const categoryMapping = {
         "mens-wear": "menswear",
@@ -16,17 +17,18 @@ export const categoryMapping = {
 export const Shoping = () => {
     const [searchParams] = useSearchParams()
     const [open,setOpen] = useState(false);
-    const [showCount,setShowCount] =  useState(gt10);
-    // const [category,setCategory] = useState();
+    const [showCount,setShowCount] =  useState(10);
     const [btn,setbtn] =  useState(true);
-    const { products,loading,category,setCategory } = useProduct()
+    const { products,fetchProducts,loading,setLoading } = useProduct()
     const queryTerm = searchParams.get('category') || "mens-wear";
 
+
     useEffect(() => {
-        if (categoryMapping[queryTerm]) {
-            setCategory(categoryMapping[queryTerm]);
+        const getProducts = async () => {
+            await fetchProducts(categoryMapping[queryTerm])
         }
-    },[queryTerm,setCategory])
+        getProducts();
+    },[queryTerm])
     
     return(
         <div className="py-20">

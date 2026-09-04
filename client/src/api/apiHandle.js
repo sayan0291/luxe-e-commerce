@@ -10,7 +10,6 @@ const options = {
 };
 
 export const apiHandle = async (category) => {
-    console.log(category)
 
     const response = await fetch(`${import.meta.env.VITE_RAPID_API_URL}/${category}`, options);
 

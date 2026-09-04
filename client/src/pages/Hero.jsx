@@ -1,7 +1,10 @@
-import { NavLink } from "react-router-dom"
+import { NavLink,useNavigate } from "react-router-dom"
 import { FadeUp, ImageCard, Header, ProductCard, Button, SimpleImageCard } from "../components"
 
 export const Hero = () => {
+
+    const navigate = useNavigate();
+
     return(
         <main className="hero-section">
             <section className="hero-section-1 section-align pt-15">
@@ -10,7 +13,7 @@ export const Hero = () => {
                     <FadeUp className="blur-card md:w-[70%] lg:w-[50%]">
                         <h2>The Art of <br/>Curated Living</h2>
                         <p>Discover our latest collection of architectural silhouettes and elevated essentials designed for the modern individual.</p>
-                        <Button varient="homeBtn" >
+                        <Button varient="homeBtn" onClick={() => navigate("/shoping")} >
                             Shop Now
                         </Button>
                     </FadeUp>
@@ -19,10 +22,10 @@ export const Hero = () => {
             <section className="hero-section-2" id="featured">
                 <Header className="mb-lg" title="Featured Collections" />
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter h-[800px] md:h-[600px]">
-                    <FadeUp className="md:col-span-8 relative group overflow-hidden" >
+                    <FadeUp className="md:col-span-8 relative group overflow-hidden" onClick={() => navigate("/new-arrivals")} >
                         <ImageCard varient="newArrivals"  />
                     </FadeUp>
-                    <FadeUp className="md:col-span-4 relative group overflow-hidden" >
+                    <FadeUp className="md:col-span-4 relative group overflow-hidden" onClick={() => navigate("/best-sellers")} >
                         <ImageCard varient="bestSellers" />
                     </FadeUp>
                 </div>
