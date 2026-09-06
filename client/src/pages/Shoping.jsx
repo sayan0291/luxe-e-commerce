@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams,useNavigate } from "react-router-dom";
 import { Button, Filter, RapidApiProducts,Loader } from "../components";
 import useProduct from "../hooks/useProducts";
 
@@ -15,6 +15,7 @@ export const categoryMapping = {
 
 export const Shoping = () => {
     const [searchParams] = useSearchParams()
+    const navigate =  useNavigate();
     const [open,setOpen] = useState(false);
     const [showCount,setShowCount] =  useState(10);
     const [btn,setbtn] =  useState(true);
@@ -28,6 +29,10 @@ export const Shoping = () => {
         }
         getProducts();
     },[queryTerm])
+
+    const handleClick = (product) => {
+        navigate("/product-details", {state: {product}})
+    }
     
     return(
         <div className="py-20">
@@ -43,7 +48,7 @@ export const Shoping = () => {
                 ) : products?.length ? (
                     products.slice(0,showCount).map((obj) => (
                         <div key={obj.id} className="group">
-                            <RapidApiProducts obj={obj} categoryParam={categoryParam} />
+                            <RapidApiProducts obj={obj} categoryParam={categoryParam} onClick={() => handleClick(obj)} />
                         </div>
                     ))
                 ) : (

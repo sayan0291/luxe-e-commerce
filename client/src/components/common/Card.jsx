@@ -76,8 +76,7 @@ export const ProductCardDetail = ({obj}) => {
     )
 }
 
-export const RapidApiProducts = ({obj,categoryParam}) => {
-    console.log(obj)
+export const RapidApiProducts = ({obj,categoryParam,...props}) => {
     let className;
 
     if(categoryParam === "laptops"){
@@ -88,7 +87,7 @@ export const RapidApiProducts = ({obj,categoryParam}) => {
 
     return(
         <>
-            <div className="group">
+            <div className="group" {...props}>
                 <div className={`relative overflow-hidden mb-md ${className}`}>
                 <div className="w-full h-full">
                     <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt={obj.Description} src={obj.Image} />

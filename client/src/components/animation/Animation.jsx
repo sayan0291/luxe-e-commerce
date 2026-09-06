@@ -29,18 +29,17 @@ export const FadeUp = ({children,className="",...props}) => {
     )
 }
 
-export const Sliding = ({children}) => {
+export const Sliding = ({setOpen,children}) => {
     return(
         <>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.5 }}
                 exit={{ opacity: 0 }}
-                onClick={() => setOpen(false)} // Clicking outside closes the sidebar
+                onClick={() => setOpen(false)}
                 className="fixed inset-0 bg-black z-40"
             />
 
-          {/* 2. Sliding Sidebar */}
             <motion.div
                 initial={{ x: "100%" }} // Starts hidden on the right side
                 animate={{ x: 0 }}       // Slides into view

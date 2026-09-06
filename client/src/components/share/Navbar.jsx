@@ -7,7 +7,9 @@ export const navBtns = [
     {id:4,btnName: "Shoping",to: "/shoping"},
 ]
 
-export const NavBar = () => (
+export const NavBar = ({open,setOpen}) => {
+
+    return(
         <header className="nav-bar">
             <nav>
                 <button className="md:hidden flex text-primary hover:opacity-70 transition-opacity duration-200">
@@ -21,7 +23,7 @@ export const NavBar = () => (
                                 key={obj.id}
                                 to={obj.to}
                                 className={({ isActive }) =>
-                                    `font-label-sm text-label-sm uppercase tracking-wider text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:border-on-primary transition-colors duration-200 ${isActive ? "border-b border-primary pb-1" : ""}`
+                                    `nav-btns ${isActive ? "border-b border-primary pb-1" : ""}`
                                 }
                             >
                                 {obj.btnName}
@@ -39,10 +41,11 @@ export const NavBar = () => (
                     <NavLink to="/user" className="hidden sm:flex">
                         <span className="material-symbols-outlined text-primary">person</span>
                     </NavLink>
-                    <button className="md:hidden">
+                    <button className="md:hidden" onClick={() => setOpen(!open)}>
                         <span className="material-symbols-outlined">menu</span>
                     </button>
                 </div>
             </nav>
         </header>
-);
+    )
+}

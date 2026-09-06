@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Button } from "./Button";
+import { Sliding } from "../animation/Animation";
 
 const category = [
   {id:1,name: "Mens Ware",value: "mensware"},
@@ -27,24 +28,8 @@ export const Filter = ({ open, setOpen }) => {
     <AnimatePresence>
       {open && (
         <>
-          {/* 1. Dark Backdrop Overlay */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setOpen(false)} // Clicking outside closes the sidebar
-            className="fixed inset-0 bg-black z-40"
-          />
-
-          {/* 2. Sliding Sidebar */}
-          <motion.div
-            initial={{ x: "100%" }} // Starts hidden on the right side
-            animate={{ x: 0 }}       // Slides into view
-            exit={{ x: "100%" }}     // Slides back out when closed
-            transition={{ type: "tween", duration: 0.3 }} // Smooth animation style
-            className="filter-section"
-          >
-            <div className="filter-section-1">
+          <Sliding setOpen={setOpen}>
+            <div className="filter-section-1 flex-bw-ic">
               <h2 className="filter-h3">
                 Filters
               </h2>
@@ -103,7 +88,7 @@ export const Filter = ({ open, setOpen }) => {
                 Apply Filters
               </Button>
             </div>
-          </motion.div>
+            </Sliding>
         </>
       )}
     </AnimatePresence>
