@@ -1,4 +1,4 @@
-import { title } from "motion/react-client";
+import { Button } from "./Button.jsx";
 import { imageCardDetails } from "../../data/productData.js";
 
 export const SimpleImageCard = ({imgSrc}) => {
@@ -96,6 +96,37 @@ export const RapidApiProducts = ({obj,categoryParam,...props}) => {
                 </div>
                 <h4 className="font-label-md text-label-md text-primary uppercase mb-base">{obj.Brand}</h4>
                 <p className="font-body-md text-body-md text-secondary">{obj.Price}</p>
+            </div>
+        </>
+    )
+}
+
+
+export const SizeSelector = ({size,activeSizeId,setActiveSizeId}) => {
+    return(
+        <>
+            <h3 className="filter-h3 mb-1">
+                Size
+            </h3>
+            <div className="grid grid-cols-5 w-[50%] gap-xs">
+                {
+                    size.map(obj => (<Button key={obj.id} varient="filterBtnSize" className={`${activeSizeId === obj.id ? 'bg-primary text-white' : ''}`} onClick={() => setActiveSizeId(obj.id)} >{obj.name}</Button>))
+                }
+            </div>
+        </>
+    )
+}
+
+export const ColorSelector = () => {
+    return(
+        <>
+            <div className="flex flex-col space-y-sm">
+                <span className="font-label-sm text-label-sm uppercase tracking-widest">Color: Obsidian Noir</span>
+                <div className="flex gap-sm">
+                    <button className="w-8 h-8 rounded-full bg-primary border-2 border-primary ring-2 ring-offset-2 ring-primary transition-all"></button>
+                    <button className="w-8 h-8 rounded-full bg-[#E5E2E1] border-2 border-transparent hover:border-primary transition-all"></button>
+                    <button className="w-8 h-8 rounded-full bg-[#3D3E42] border-2 border-transparent hover:border-primary transition-all"></button>
+                </div>
             </div>
         </>
     )
