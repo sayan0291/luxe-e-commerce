@@ -121,7 +121,7 @@ export const ColorSelector = () => {
     return(
         <>
             <div className="flex flex-col space-y-sm">
-                <span className="font-label-sm text-label-sm uppercase tracking-widest">Color: Obsidian Noir</span>
+                <span className="font-label-sm text-label-sm uppercase tracking-widest">Color: Black</span>
                 <div className="flex gap-sm">
                     <button className="w-8 h-8 rounded-full bg-primary border-2 border-primary ring-2 ring-offset-2 ring-primary transition-all"></button>
                     <button className="w-8 h-8 rounded-full bg-[#E5E2E1] border-2 border-transparent hover:border-primary transition-all"></button>

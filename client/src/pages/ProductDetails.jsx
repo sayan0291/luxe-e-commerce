@@ -37,12 +37,14 @@ export const ProductDetails = () => {
                     </section>
                 </div>
             </div>
-            <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pl-margin-mobile md:pl-margin-desktop space-x-gutter pb-md">
-                <DetailImageCard product="product1" />
-                <DetailImageCard product="product2" />
-                <DetailImageCard product="product3" />
-                <DetailImageCard product="product4" />
-            </div>
+            <section className="w-full bg-surface-container-low py-xl overflow-hidden">
+                <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pl-margin-mobile md:pl-margin-desktop space-x-gutter pb-md">
+                    <DetailImageCard product="product1" />
+                    <DetailImageCard product="product2" />
+                    <DetailImageCard product="product3" />
+                    <DetailImageCard product="product4" />
+                </div>
+            </section>
         </div>
     )
 }

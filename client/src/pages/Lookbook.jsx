@@ -50,15 +50,15 @@ export const Lookbook = () => {
                     </div>
                 </section>
 
-                <section class="bg-surface-container-low py-xl overflow-hidden">
-                    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-lg flex justify-between items-end">
-                        <h3 class="font-headline-md text-headline-md text-primary tracking-tight">Featured Pieces</h3>
-                        <div class="flex space-x-sm">
-                        <button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
-                        <span class="material-symbols-outlined text-sm m-0" data-icon="arrow_back">arrow_back</span>
+                <section className="bg-surface-container-low py-xl overflow-hidden">
+                    <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-lg flex justify-between items-end">
+                        <h3 className="font-headline-md text-headline-md text-primary tracking-tight">Featured Pieces</h3>
+                        <div className="flex space-x-sm">
+                        <button className="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
+                        <span className="material-symbols-outlined text-sm m-0" data-icon="arrow_back">arrow_back</span>
                         </button>
-                        <button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
-                        <span class="material-symbols-outlined text-sm m-0" data-icon="arrow_forward">arrow_forward</span>
+                        <button className="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
+                        <span className="material-symbols-outlined text-sm m-0" data-icon="arrow_forward">arrow_forward</span>
                         </button>
                         </div>
                     </div>
