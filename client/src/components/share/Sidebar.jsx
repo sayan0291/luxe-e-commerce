@@ -1,5 +1,4 @@
 import { AnimatePresence } from "motion/react";
-import { useState } from "react";
 import { navBtns } from "./Navbar";
 import { Sliding } from "../../components"
 import { NavLink } from "react-router-dom";
