@@ -1,16 +1,10 @@
 import { useState } from "react"
 import { Eye, EyeOff } from 'lucide-react'
+import { useForm } from "react-hook-form"
 
 export const Register = () => {
 
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        newsletter: true,
-        terms: false,
-      });
+    const { register,handleSubmit,formState: { errors } } = useForm();
 
       const [showPassword, setShowPassword] = useState(false);
       const [isLoading, setIsLoading] = useState(false);
@@ -23,24 +17,7 @@ export const Register = () => {
       const hasSpecial = /[^A-Za-z0-9]/.test(formData.password);
 
       const strengthScore = [hasLength, hasNumber, hasSpecial].filter(Boolean).length;
-
-      const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData(prev => ({
-          ...prev,
-          [name]: type === 'checkbox' ? checked : value
-        }));
-      };
-
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!formData.terms) return;
-        setIsLoading(true);
-        setTimeout(() => {
-          setIsLoading(false);
-          setRegistered(true);
-        }, 1200);
-      };
+      
     return(
         <>
              <main className="flex-1 flex-jc-ic px-6 pt-25 pb-4">
