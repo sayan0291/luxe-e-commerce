@@ -9,3 +9,4 @@ export { Footer } from "./share/Footer";
 export { NavBar } from "./share/Navbar"
 export { Button } from "./common/Button.jsx"
 export { Sidebar } from "./share/Sidebar.jsx";
+export { FormField } from "./common/FormField.jsx"

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Eye, EyeOff } from 'lucide-react'
 import { useForm } from "react-hook-form"
+import { FormField } from "../components";
+import { registerValidationRules } from "../config/formValidation";
 
 export const Register = () => {
 
@@ -10,13 +12,6 @@ export const Register = () => {
       const [isLoading, setIsLoading] = useState(false);
       const [registered, setRegistered] = useState(false);
       const [focusedField, setFocusedField] = useState(null);
-
-      // Password strength indicators
-      const hasLength = formData.password.length >= 8;
-      const hasNumber = /\d/.test(formData.password);
-      const hasSpecial = /[^A-Za-z0-9]/.test(formData.password);
-
-      const strengthScore = [hasLength, hasNumber, hasSpecial].filter(Boolean).length;
       
     return(
         <>
@@ -50,78 +45,15 @@ export const Register = () => {
                     <form onSubmit={handleSubmit} className="space-y-5">
                         {/* Full name row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label 
-                            htmlFor="firstName" 
-                            className={`block text-[11px] uppercase tracking-wider font-medium mb-1.5 transition-colors ${
-                                focusedField === 'firstName' ? 'text-black' : 'text-neutral-500'
-                            }`}
-                            >
-                            First Name
-                            </label>
-                            <input
-                            id="firstName"
-                            name="firstName"
-                            type="text"
-                            required
-                            value={formData.firstName}
-                            onChange={handleChange}
-                            onFocus={() => setFocusedField('firstName')}
-                            onBlur={() => setFocusedField(null)}
-                            placeholder="Jane"
-                            className="w-full px-4 py-3 text-sm bg-neutral-50/50 border border-neutral-300 rounded-none focus:outline-none focus:border-black focus:bg-white transition-all placeholder:text-neutral-400"
-                            />
-                        </div>
-                        <div>
-                            <label 
-                            htmlFor="lastName" 
-                            className={`block text-[11px] uppercase tracking-wider font-medium mb-1.5 transition-colors ${
-                                focusedField === 'lastName' ? 'text-black' : 'text-neutral-500'
-                            }`}
-                            >
-                            Last Name
-                            </label>
-                            <input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            required
-                            value={formData.lastName}
-                            onChange={handleChange}
-                            onFocus={() => setFocusedField('lastName')}
-                            onBlur={() => setFocusedField(null)}
-                            placeholder="Doe"
-                            className="w-full px-4 py-3 text-sm bg-neutral-50/50 border border-neutral-300 rounded-none focus:outline-none focus:border-black focus:bg-white transition-all placeholder:text-neutral-400"
-                            />
-                        </div>
+                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
+                            <FormField label="Last Name" id="lastName" type="text" name="lastName" placeholder="Doe" register={(n) => register(n,registerValidationRules.lastName)} error={errors.lastName} />
                         </div>
 
                         {/* Email */}
-                        <div>
-                        <label 
-                            htmlFor="email" 
-                            className={`block text-[11px] uppercase tracking-wider font-medium mb-1.5 transition-colors ${
-                            focusedField === 'email' ? 'text-black' : 'text-neutral-500'
-                            }`}
-                        >
-                            Email Address
-                        </label>
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange}
-                            onFocus={() => setFocusedField('email')}
-                            onBlur={() => setFocusedField(null)}
-                            placeholder="name@domain.com"
-                            className="w-full px-4 py-3 text-sm bg-neutral-50/50 border border-neutral-300 rounded-none focus:outline-none focus:border-black focus:bg-white transition-all placeholder:text-neutral-400"
-                        />
-                        </div>
+                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
 
                         {/* Password with strength visualizer */}
-                        <div>
+                        {/* <div>
                         <label 
                             htmlFor="password" 
                             className={`block text-[11px] uppercase tracking-wider font-medium mb-1.5 transition-colors ${
@@ -155,10 +87,10 @@ export const Register = () => {
                                 <EyeOff />
                             )}
                             </button>
-                        </div>
+                        </div> */}
 
                         {/* Interactive Strength Meter */}
-                        {formData.password && (
+                        {/* {formData.password && (
                             <div className="mt-2 space-y-1.5">
                             <div className="flex gap-1.5 h-1">
                                 <div className={`flex-1 transition-colors ${strengthScore >= 1 ? 'bg-neutral-800' : 'bg-neutral-200'}`}></div>
@@ -172,42 +104,17 @@ export const Register = () => {
                             </div>
                             </div>
                         )}
-                        </div>
+                        </div> */}
 
                         {/* Newsletter & Terms */}
                         <div className="space-y-3 pt-2">
-                        <div className="flex items-start gap-2.5">
-                            <input
-                            id="newsletter"
-                            name="newsletter"
-                            type="checkbox"
-                            checked={formData.newsletter}
-                            onChange={handleChange}
-                            className="w-4 h-4 mt-0.5 rounded-none accent-black border-neutral-300 cursor-pointer"
-                            />
-                            <label htmlFor="newsletter" className="text-xs text-neutral-600 font-light select-none cursor-pointer">
-                            Receive early invitations to seasonal collections and atelier editorial drops.
-                            </label>
-                        </div>
+                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
 
-                        <div className="flex items-start gap-2.5">
-                            <input
-                            id="terms"
-                            name="terms"
-                            type="checkbox"
-                            required
-                            checked={formData.terms}
-                            onChange={handleChange}
-                            className="w-4 h-4 mt-0.5 rounded-none accent-black border-neutral-300 cursor-pointer"
-                            />
-                            <label htmlFor="terms" className="text-xs text-neutral-600 font-light select-none cursor-pointer">
-                            I accept the <a href="#" className="text-black underline underline-offset-2">Terms of Service</a> and <a href="#" className="text-black underline underline-offset-2">Privacy Policy</a>.
-                            </label>
-                        </div>
+                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
                         </div>
 
                         {/* Submit button */}
-                        <button
+                        {/* <button
                         type="submit"
                         disabled={isLoading || !formData.terms}
                         className="w-full bg-black text-white hover:bg-neutral-800 disabled:opacity-50 py-3.5 px-6 text-xs uppercase tracking-widest font-medium transition-all duration-200 flex items-center justify-center gap-2 group mt-4"
@@ -222,7 +129,7 @@ export const Register = () => {
                             </svg>
                             </>
                         )}
-                        </button>
+                        </button> */}
                     </form>
                     )}
 
