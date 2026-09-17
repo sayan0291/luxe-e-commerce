@@ -1,4 +1,3 @@
-import { configDotenv } from "dotenv";
 
 const options = {
     method: "GET",

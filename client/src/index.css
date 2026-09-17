@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 @import "tailwindcss";
-@plugin "@tailwindcss/forms";
-@plugin "@tailwindcss/container-queries";
+
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -132,13 +131,16 @@
 
 @layer base{
   body {
-    @apply bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container;
+    @apply font-body-md selection:bg-primary-container selection:text-on-primary-container bg-background;
   }
   h1 {
     @apply font-display text-display-mobile md:text-display text-primary dark:text-on-primary tracking-tighter;
   }
   footer {
     @apply w-full py-xl bg-surface-container-lowest border-t border-outline-variant;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
@@ -198,7 +200,7 @@
 
       & > :nth-child(2) {
         @apply relative z-10 flex lg:justify-end items-center h-full;
-        
+
         & > div {
           & > h2 {
             @apply font-display text-display-mobile md:text-display text-primary mb-md leading-[1.1];
@@ -316,11 +318,10 @@
       @apply px-lg py-md border-b border-outline-variant/30;
     }
   }
-  
+
   .filter-h3 {
     @apply font-label-md text-primary uppercase mb-md tracking-widest;
   }
-
 
 }
 

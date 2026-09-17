@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export const navBtns = [
@@ -8,6 +9,8 @@ export const navBtns = [
 ]
 
 export const NavBar = ({open,setOpen}) => {
+
+    const [user,setUser] = useState(false);
 
     return(
         <header className="nav-bar">
@@ -38,9 +41,16 @@ export const NavBar = ({open,setOpen}) => {
                     <NavLink to="/cart" >
                         <span className="material-symbols-outlined text-primary">shopping_bag</span>
                     </NavLink>
-                    <NavLink to="/user" className="hidden sm:flex">
-                        <span className="material-symbols-outlined text-primary">person</span>
-                    </NavLink>
+                    {
+                        user ? (
+                                    <NavLink to="/user" className="hidden sm:flex">
+                                        <span className="material-symbols-outlined text-primary">person</span>
+                                    </NavLink>) : (
+                                        <NavLink to="/register" className="flex">
+                                            <span className="material-symbols-outlined text-primary">login</span>
+                                        </NavLink>
+                                    )
+                    }
                     <button className="md:hidden" onClick={() => setOpen(!open)}>
                         <span className="material-symbols-outlined">menu</span>
                     </button>

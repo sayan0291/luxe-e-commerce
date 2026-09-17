@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Eye, EyeOff } from 'lucide-react'
 import { useForm } from "react-hook-form"
-import { FormField,CheckBox, FormHeader, SuccessHeader } from "../components";
+import { FormField,CheckBox, FormHeader, SuccessHeader, ChoseField } from "../components";
 import { registerValidationRules } from "../config/formValidation";
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -84,16 +84,7 @@ export const Register = () => {
                         </button>
                     </form>
                     )}
-
-                    {/* Switch to Login */}
-                    <div className="mt-8 pt-6 border-t border-neutral-100 text-center">
-                        <p className="text-xs text-neutral-500 font-light">
-                            Already registered with LUXE?{' '}
-                            <a href="#" className="font-medium text-black underline underline-offset-4 hover:opacity-75 transition-opacity">
-                            Sign in here
-                            </a>
-                        </p>
-                    </div>
+                    <ChoseField />
                 </div>
                 </main>
         </>

@@ -98,3 +98,18 @@ export const SuccessHeader = () => {
         </>
     )
 }
+
+export const ChoseField = ({textp="Already registered with LUXE?",texta="in"}) => {
+    return(
+        <>
+            <div className="mt-8 pt-6 border-t border-neutral-100 text-center">
+                <p className="text-xs text-neutral-500 font-light">
+                    {textp}{' '}
+                    <a href="#" className="font-medium text-black underline underline-offset-4 hover:opacity-75 transition-opacity">
+                    Sign {texta} here
+                    </a>
+                </p>
+            </div>
+        </>
+    )
+}
