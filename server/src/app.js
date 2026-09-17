@@ -16,7 +16,8 @@ app.use(express.urlencoded({extended: true,limit: "10kb"})) //express and proces
 app.use((express.static('public'))) //servers the static folder file's static
 app.use(cookieParser()) //set browser cookieserver
 
+import UserRouter from "./routes/user.route";
 
-
+app.use('user',UserRouter)
 
 export default app;
