@@ -163,6 +163,9 @@
 }
 
 @layer components{
+  .link-text {
+    @apply text-primary/60 underline underline-offset-2;
+  }
 
   .nav-btns{
     @apply font-label-sm text-label-sm uppercase tracking-wider text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:border-on-primary transition-colors duration-200;

@@ -55,8 +55,9 @@ export const registerValidationRules = z.object({
                       .string()
                       .min(1, "Confirm Your Password"),
   terms: z
-          .literal(true, {
-            errorMap: () => ({ message: "You must accept the terms and conditions to continue" }),
+          .boolean()
+          .refine((val) => val === true, {
+            message: "You must accept the terms and conditions to continue",
           }),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Password does not match",
