@@ -1,12 +1,16 @@
 import { useState } from "react"
 import { Eye, EyeOff } from 'lucide-react'
 import { useForm } from "react-hook-form"
-import { FormField } from "../components";
+import { FormField,CheckBox } from "../components";
 import { registerValidationRules } from "../config/formValidation";
+import { zodResolver } from "@hookform/resolvers/zod"
 
 export const Register = () => {
 
-    const { register,handleSubmit,formState: { errors } } = useForm();
+    const { register,handleSubmit,formState: { errors } } = useForm({
+        resolver: zodResolver(registerValidationRules),
+        mode: "onChange"
+    });
 
       const [showPassword, setShowPassword] = useState(false);
       const [isLoading, setIsLoading] = useState(false);
@@ -45,36 +49,15 @@ export const Register = () => {
                     <form onSubmit={handleSubmit} className="space-y-5">
                         {/* Full name row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
-                            <FormField label="Last Name" id="lastName" type="text" name="lastName" placeholder="Doe" register={(n) => register(n,registerValidationRules.lastName)} error={errors.lastName} />
+                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register("firstName")} error={errors.firstName} />
+                            <FormField label="Last Name" id="lastName" type="text" name="lastName" placeholder="Doe" register={(n) => register("lastName")} error={errors.lastName} />
                         </div>
 
                         {/* Email */}
-                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
+                            <FormField label="Email" id="email" type="email" name="email" placeholder="example@gmail.com" register={(n) => register("email")} error={errors.email} />
 
                         {/* Password with strength visualizer */}
-                        {/* <div>
-                        <label 
-                            htmlFor="password" 
-                            className={`block text-[11px] uppercase tracking-wider font-medium mb-1.5 transition-colors ${
-                            focusedField === 'password' ? 'text-black' : 'text-neutral-500'
-                            }`}
-                        >
-                            Create Password
-                        </label>
-                        <div className="relative">
-                            <input
-                            id="password"
-                            name="password"
-                            type={showPassword ? "text" : "password"}
-                            required
-                            value={formData.password}
-                            onChange={handleChange}
-                            onFocus={() => setFocusedField('password')}
-                            onBlur={() => setFocusedField(null)}
-                            placeholder="Min. 8 characters"
-                            className="w-full pl-4 pr-11 py-3 text-sm bg-neutral-50/50 border border-neutral-300 rounded-none focus:outline-none focus:border-black focus:bg-white transition-all placeholder:text-neutral-400"
-                            />
+                        <FormField label="Password" id="password" type={showPassword ? "text" : "password"} name="password" placeholder="Password" register={(n) => register("password")} error={errors.password} >
                             <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
@@ -87,31 +70,13 @@ export const Register = () => {
                                 <EyeOff />
                             )}
                             </button>
-                        </div> */}
+                        </FormField>
+                        <FormField label="Confirm Password" id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" register={(n) => register("confirmPassword")} error={errors.confirmPassword} />
 
-                        {/* Interactive Strength Meter */}
-                        {/* {formData.password && (
-                            <div className="mt-2 space-y-1.5">
-                            <div className="flex gap-1.5 h-1">
-                                <div className={`flex-1 transition-colors ${strengthScore >= 1 ? 'bg-neutral-800' : 'bg-neutral-200'}`}></div>
-                                <div className={`flex-1 transition-colors ${strengthScore >= 2 ? 'bg-neutral-800' : 'bg-neutral-200'}`}></div>
-                                <div className={`flex-1 transition-colors ${strengthScore >= 3 ? 'bg-neutral-800' : 'bg-neutral-200'}`}></div>
-                            </div>
-                            <div className="flex justify-between text-[10px] text-neutral-400 tracking-wide font-light">
-                                <span className={hasLength ? 'text-black font-normal' : ''}>• 8+ characters</span>
-                                <span className={hasNumber ? 'text-black font-normal' : ''}>• Includes number</span>
-                                <span className={hasSpecial ? 'text-black font-normal' : ''}>• Includes symbol</span>
-                            </div>
-                            </div>
-                        )}
-                        </div> */}
-
-                        {/* Newsletter & Terms */}
-                        <div className="space-y-3 pt-2">
-                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
-
-                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register(n,registerValidationRules.firstName)} error={errors.firstName} />
-                        </div>
+                        {/* Terms */}
+                        <CheckBox id="terms" name="terms" register={(n) => register("terms")} >
+                            I accept the <a href="#" className="text-black underline underline-offset-2">Terms of Service</a> and <a href="#" className="text-black underline underline-offset-2">Privacy Policy</a>
+                        </CheckBox>
 
                         {/* Submit button */}
                         {/* <button
