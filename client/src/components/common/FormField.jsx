@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export const FormField = ({label,id,type="text",placeholder,register,error,name,children=""}) => {
     return(
         <>
@@ -76,7 +78,7 @@ export const FormHeader = ({texth1="Create an Account",textp=""}) => {
     )
 }
 
-export const SuccessHeader = () => {
+export const SuccessHeader = ({formData,texth3="Account Created"}) => {
     return(
         <>
             <div className="py-12 text-center w-full space-y-4">
@@ -85,29 +87,29 @@ export const SuccessHeader = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
                 </div>
-                <h3 className="text-lg font-medium text-neutral-900">Membership Created</h3>
+                <h3 className="text-lg font-medium text-neutral-900">{texth3} Successfully</h3>
                 <p className="text-xs text-neutral-500 mx-auto">
-                A verification link has been sent to <span className="font-medium text-black">{formData.email}</span>. Please verify your email to access your client portal.
+                    A verification link has been sent to <span className="font-medium text-black">{formData.email}</span>. Please verify your email to access your client portal.
                 </p>
-                <div className="pt-4">
+                {/* <div className="pt-4">
                 <a href="#" className="inline-block bg-black text-white px-8 py-3 text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors">
                     Go to Sign In
                 </a>
-                </div>
+                </div> */}
             </div>
         </>
     )
 }
 
-export const ChoseField = ({textp="Already registered with LUXE?",texta="in"}) => {
+export const ChoseField = ({textp="Already registered with LUXE?",texta="in",to="/login"}) => {
     return(
         <>
             <div className="mt-8 pt-6 border-t border-neutral-100 text-center">
                 <p className="text-xs text-neutral-500 font-light">
                     {textp}{' '}
-                    <a href="#" className="font-medium text-black underline underline-offset-4 hover:opacity-75 transition-opacity">
-                    Sign {texta} here
-                    </a>
+                    <NavLink to={to} className="font-medium text-black underline underline-offset-4 hover:opacity-75 transition-opacity">
+                        Sign {texta} here
+                    </NavLink>
                 </p>
             </div>
         </>

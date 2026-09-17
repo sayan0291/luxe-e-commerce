@@ -1,5 +1,5 @@
 import { Routes,Route,Navigate } from 'react-router-dom';
-import { Hero ,Collections, UnderConstruction, PageNotFound, Lookbook, NewArrivals,Shoping,ProductDetails,Register } from './pages';
+import { Hero ,Collections, UnderConstruction, PageNotFound, Lookbook, NewArrivals,Shoping,ProductDetails,Register,Login } from './pages';
 import { MainLayouts } from './components/layouts/MainLayouts';
 import ProductProvider from './context/productContext/ProductContextProvider';
 
@@ -28,7 +28,7 @@ export default function App() {
           <Route path="/shop-trailoring" element={<UnderConstruction />} />
           <Route path="/shop-now" element={<UnderConstruction />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<UnderConstruction />} />
+          <Route path="/login" element={<Login />} />
         </Route>
         <Route>
           <Route path="/not-found" element={<PageNotFound />} />

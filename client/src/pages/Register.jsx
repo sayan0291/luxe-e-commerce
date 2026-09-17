@@ -31,7 +31,7 @@ export const Register = () => {
                     <FormHeader textp="Join the atelier for curated private views, preview releases, and bespoke service." />
 
                     {registered ? (
-                        <SuccessHeader />
+                        <SuccessHeader formData={formData} />
                     ) : (
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                         {/* Full name row */}
