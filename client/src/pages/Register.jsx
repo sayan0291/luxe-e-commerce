@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { FormField,CheckBox, FormHeader, SuccessHeader, ChoseField,FormButton } from "../components";
 import { registerValidationRules } from "../config/formValidation";
 import { zodResolver } from "@hookform/resolvers/zod"
+import { apiAuthDataHandle } from "../api/apiAuthDataHandle";
 
 export const Register = () => {
 
@@ -19,6 +20,7 @@ export const Register = () => {
       const onSubmit = async (data) => {
         console.log("i am clicked")
         await new Promise((resolve) => setTimeout(resolve,2000))
+        await apiAuthDataHandle();
         setFormData(data)
         setRegistered(true)
       }

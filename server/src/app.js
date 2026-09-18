@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser";
-import { corsOptions } from "./middlewars/cors.middleware";
+import { corsOptions } from "./middlewars/cors.middleware.js";
 
 const app = express();
 
@@ -14,8 +14,11 @@ app.use(express.urlencoded({extended: true,limit: "10kb"})) //express and proces
 app.use((express.static('public'))) //servers the static folder file's static
 app.use(cookieParser()) //set browser cookieserver
 
-import UserRouter from "./routes/user.route";
+import UserRouter from "./routes/user.route.js";
+app.get('/api/v1/',(req,res) => {
+    res.send({message: "hello wellcome to backend server"})
+})
 
-app.use('user',UserRouter)
+app.use('/api/v1/user',UserRouter)
 
 export default app;

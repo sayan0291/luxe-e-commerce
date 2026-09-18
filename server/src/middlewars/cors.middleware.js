@@ -1,8 +1,8 @@
 const allowedOrigins = [
-    'https://localhost:5173'
+    'http://localhost:5173'
 ]
 
-export const corsOptions = () => {
+export const corsOptions =  {
     origin: (origin,callback) => {
         // Allow requests with no origin (like mobile apps, curl, or Postman)
         if(!origin) return callback(null,true)
@@ -12,9 +12,9 @@ export const corsOptions = () => {
         }else {
             callback(new Error('Blocked by Security Framework: CORS Restriction'));
         }
-    };
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'];
-    allowedHeaders: ['Content-Type','Authorization'];
-    credentails: true;
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization'],
+    credentails: true,
     optionSuccessStatus: 200
 }
