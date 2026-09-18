@@ -63,3 +63,15 @@ export const registerValidationRules = z.object({
   message: "Password does not match",
   path: ["confirmPassword"]
 })
+
+
+export const loginValidationRules = z.object({
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .trim()
+    .email("Invalid email structure"),
+  password: z
+    .string()
+    .min(1, "Password is required"), // Don't enforce regex on login; just verify it's not empty
+});

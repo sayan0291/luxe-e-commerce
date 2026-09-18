@@ -84,7 +84,7 @@ export const Register = () => {
                         </button>
                     </form>
                     )}
-                    <ChoseField />
+                    {!registered && (<ChoseField />)}
                 </div>
                 </main>
         </>

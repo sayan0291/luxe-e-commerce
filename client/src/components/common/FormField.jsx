@@ -78,7 +78,7 @@ export const FormHeader = ({texth1="Create an Account",textp=""}) => {
     )
 }
 
-export const SuccessHeader = ({formData,texth3="Account Created"}) => {
+export const SuccessHeader = ({formData,texth3="Account Created",className}) => {
     return(
         <>
             <div className="py-12 text-center w-full space-y-4">
@@ -88,7 +88,7 @@ export const SuccessHeader = ({formData,texth3="Account Created"}) => {
                 </svg>
                 </div>
                 <h3 className="text-lg font-medium text-neutral-900">{texth3} Successfully</h3>
-                <p className="text-xs text-neutral-500 mx-auto">
+                <p className={`text-xs text-neutral-500 mx-auto ${className}`}>
                     A verification link has been sent to <span className="font-medium text-black">{formData.email}</span>. Please verify your email to access your client portal.
                 </p>
                 {/* <div className="pt-4">

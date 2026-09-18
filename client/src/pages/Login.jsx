@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { registerValidationRules } from "../config/formValidation";
+import { loginValidationRules } from "../config/formValidation";
 import { FormHeader, SuccessHeader,FormField, ChoseField } from "../components";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +8,7 @@ import { Eye,EyeOff } from "lucide-react";
 export const Login = () => {
 
     const { register,handleSubmit,formState: { errors,isSubmitting } } = useForm({
-        resolver: zodResolver(registerValidationRules),
+        resolver: zodResolver(loginValidationRules),
         mode: "onChange"
     })
 
@@ -21,7 +21,7 @@ export const Login = () => {
         console.log("i am clicked on Login")
         await new Promise((resolve) => setTimeout(resolve,2000))
         setFormData(data)
-        setRegistered(true)
+        setLogin(true)
     }
 
     return(
@@ -32,7 +32,7 @@ export const Login = () => {
                     <FormHeader texth1="Welcome Back" textp="Access your private atelier orders, saved pieces, and tailored services." />
 
                     {
-                        login ? (<SuccessHeader texth3="Logged In" />) : (
+                        login ? (<SuccessHeader formData={formData} texth3="Logged In" className="hidden" />) : (
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                                 <FormField label="Email" id="email" type="email" name="email" placeholder="example@gmail.com" register={(n) => register("email")} error={errors.email} />
                                 <FormField label="Password" id="password" type={showPassword ? "text" : "password"} name="password" placeholder="Password" register={(n) => register("password")} error={errors.password} >
@@ -68,7 +68,7 @@ export const Login = () => {
                             </form>
                         )
                     }
-                    <ChoseField textp="Don't have an Luxe account?" texta="up" to="/register" />
+                    {!login && (<ChoseField textp="Don't have an Luxe account?" texta="up" to="/register" />)}
                 </div>
             </main>
         </>
