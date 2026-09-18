@@ -2,7 +2,6 @@ import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { ProductCardDetail, Header, Button } from "../components"
 import { Products } from "../data/productData"
-import { allData } from "../api/apiHandle"
 
 export const NewArrivals = () => {
     const [showCount,setShowCount] =  useState(8);

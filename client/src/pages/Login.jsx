@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { loginValidationRules } from "../config/formValidation";
-import { FormHeader, SuccessHeader,FormField, ChoseField } from "../components";
+import { FormHeader, SuccessHeader,FormField, ChoseField, FormButton } from "../components";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye,EyeOff } from "lucide-react";
@@ -15,7 +15,6 @@ export const Login = () => {
     const [login,setLogin] = useState(false)
     const [showPassword,setShowPassword] = useState(false)
     const [formData, setFormData] = useState();
-    const [registered, setRegistered] = useState(false);
 
     const onSubmit = async (data) => {
         console.log("i am clicked on Login")
@@ -49,22 +48,7 @@ export const Login = () => {
                                     )}
                                     </button>
                                 </FormField>
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full bg-black text-white hover:bg-neutral-800 disabled:opacity-50 py-3.5 px-6 text-xs uppercase tracking-widest font-medium transition-all duration-200 flex items-center justify-center gap-2 group mt-4"
-                                    >
-                                    {isSubmitting ? (
-                                        <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                                    ) : (
-                                        <>
-                                        <span>Login</span>
-                                        <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                        </svg>
-                                        </>
-                                    )}
-                                </button>
+                                <FormButton isSubmitting={isSubmitting} text="Login" />
                             </form>
                         )
                     }
