@@ -1,15 +1,13 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser";
+import { corsOptions } from "./middlewars/cors.middleware";
 
 const app = express();
 
 //express js middleware config
 
-app.use(cors({
-    origin: process.env.CORS_ORIGIN, //accept only from this url
-    credentials: true
-}))
+app.use(cors(corsOptions))
 //json payload parser
 app.use(express.json({limit: "10kb"})) //data which coming from front end it transfer the data in json
 app.use(express.urlencoded({extended: true,limit: "10kb"})) //express and process data from front end html form
