@@ -23,6 +23,7 @@ export const Register = () => {
         await apiAuthDataHandle();
         setFormData(data)
         setRegistered(true)
+        console.log("hello world1")
       }
       
     return(
