@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Eye, EyeOff } from 'lucide-react'
 import { useForm } from "react-hook-form"
-import { FormField,CheckBox, FormHeader, SuccessHeader, ChoseField,FormButton } from "../components";
+import { FormInput,CheckBox, FormHeader, SuccessHeader, ChoseField,FormButton } from "../components";
 import { registerValidationRules } from "../config/formValidation";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { apiAuthDataHandle } from "../api/apiAuthDataHandle";
@@ -23,7 +23,6 @@ export const Register = () => {
         await apiAuthDataHandle();
         setFormData(data)
         setRegistered(true)
-        console.log("hello world1")
       }
       
     return(
@@ -39,15 +38,15 @@ export const Register = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                         {/* Full name row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <FormField label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register("firstName")} error={errors.firstName} />
-                            <FormField label="Last Name" id="lastName" type="text" name="lastName" placeholder="Doe" register={(n) => register("lastName")} error={errors.lastName} />
+                            <FormInput label="First Name" id="firstName" type="text" name="firstName" placeholder="Jane" register={(n) => register("firstName")} error={errors.firstName} />
+                            <FormInput label="Last Name" id="lastName" type="text" name="lastName" placeholder="Doe" register={(n) => register("lastName")} error={errors.lastName} />
                         </div>
 
                         {/* Email */}
-                            <FormField label="Email" id="email" type="email" name="email" placeholder="example@gmail.com" register={(n) => register("email")} error={errors.email} />
+                            <FormInput label="Email" id="email" type="email" name="email" placeholder="example@gmail.com" register={(n) => register("email")} error={errors.email} />
 
                         {/* Password with strength visualizer */}
-                        <FormField label="Password" id="password" type={showPassword ? "text" : "password"} name="password" placeholder="Password" register={(n) => register("password")} error={errors.password} >
+                        <FormInput label="Password" id="password" type={showPassword ? "text" : "password"} name="password" placeholder="Password" register={(n) => register("password")} error={errors.password} >
                             <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
@@ -60,8 +59,8 @@ export const Register = () => {
                                 <EyeOff strokeWidth={1.5} />
                             )}
                             </button>
-                        </FormField>
-                        <FormField label="Confirm Password" id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" register={(n) => register("confirmPassword")} error={errors.confirmPassword} />
+                        </FormInput>
+                        <FormInput label="Confirm Password" id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" register={(n) => register("confirmPassword")} error={errors.confirmPassword} />
 
                         {/* Terms */}
                         <CheckBox id="terms" name="terms" register={(n) => register("terms")} error={errors.terms} >

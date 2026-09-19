@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-export const FormField = ({label,id,type="text",placeholder,register,error,name,children=""}) => {
+export const FormInput = ({label,id,type="text",placeholder,register,error,name,children=""}) => {
     return(
         <>
             <div className="group flex flex-col w-full mb-4" >

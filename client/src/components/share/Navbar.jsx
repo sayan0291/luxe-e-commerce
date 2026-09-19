@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FormInput, SearchInput } from "../../components";
 
 export const navBtns = [
     {id:1,btnName: "Collections",to: "/collections"},
@@ -11,6 +12,7 @@ export const navBtns = [
 export const NavBar = ({open,setOpen}) => {
 
     const [user,setUser] = useState(false);
+    const [search,setSearch] = useState(false)
 
     return(
         <header className="nav-bar">
@@ -35,21 +37,20 @@ export const NavBar = ({open,setOpen}) => {
                     </div>
                 </div>
                 <div className="flex-ic gap-md">
-                    <button className="hidden md:flex text-primary hover:opacity-70 transition-opacity duration-200">
-                        <span className="material-symbols-outlined" data-icon="search">search</span>
-                    </button>
+                    <SearchInput />
+
                     <NavLink to="/cart" >
                         <span className="material-symbols-outlined text-primary">shopping_bag</span>
                     </NavLink>
                     {
                         user ? (
-                                    <NavLink to="/user" className="hidden sm:flex">
-                                        <span className="material-symbols-outlined text-primary">person</span>
-                                    </NavLink>) : (
-                                        <NavLink to="/register" className="flex">
-                                            <span className="material-symbols-outlined text-primary">login</span>
-                                        </NavLink>
-                                    )
+                                <NavLink to="/user" className="hidden sm:flex">
+                                    <span className="material-symbols-outlined text-primary">person</span>
+                                </NavLink>) : (
+                                <NavLink to="/register" className="flex">
+                                    <span className="material-symbols-outlined text-primary">login</span>
+                                </NavLink>
+                                )
                     }
                     <button className="md:hidden" onClick={() => setOpen(!open)}>
                         <span className="material-symbols-outlined">menu</span>

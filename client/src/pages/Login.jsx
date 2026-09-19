@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { loginValidationRules } from "../config/formValidation";
-import { FormHeader, SuccessHeader,FormField, ChoseField, FormButton } from "../components";
+import { FormHeader, SuccessHeader,FormInput, ChoseField, FormButton } from "../components";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye,EyeOff } from "lucide-react";
@@ -33,8 +33,8 @@ export const Login = () => {
                     {
                         login ? (<SuccessHeader formData={formData} texth3="Logged In" className="hidden" />) : (
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                                <FormField label="Email" id="email" type="email" name="email" placeholder="example@gmail.com" register={(n) => register("email")} error={errors.email} />
-                                <FormField label="Password" id="password" type={showPassword ? "text" : "password"} name="password" placeholder="Password" register={(n) => register("password")} error={errors.password} >
+                                <FormInput label="Email" id="email" type="email" name="email" placeholder="example@gmail.com" register={(n) => register("email")} error={errors.email} />
+                                <FormInput label="Password" id="password" type={showPassword ? "text" : "password"} name="password" placeholder="Password" register={(n) => register("password")} error={errors.password} >
                                     <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
@@ -47,7 +47,7 @@ export const Login = () => {
                                         <EyeOff strokeWidth={1.5} />
                                     )}
                                     </button>
-                                </FormField>
+                                </FormInput>
                                 <FormButton isSubmitting={isSubmitting} text="Login" />
                             </form>
                         )
