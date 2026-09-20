@@ -1,5 +1,6 @@
 import { Button } from "./Button.jsx";
 import { imageCardDetails } from "../../data/productData.js";
+import { useEffect, useState } from "react";
 
 export const SimpleImageCard = ({imgSrc}) => {
     return(
@@ -77,18 +78,11 @@ export const ProductCardDetail = ({obj}) => {
 }
 
 export const RapidApiProducts = ({obj,categoryParam,...props}) => {
-    let className;
-
-    if(categoryParam === "laptops"){
-        className = ""
-    }else {
-        className = "aspect-[3/4]"
-    }
 
     return(
         <>
             <div className="group" {...props}>
-                <div className={`relative overflow-hidden mb-md ${className}`}>
+                <div className={`relative overflow-hidden mb-md ${categoryParam === "laptops" ? " ":"aspect-[3/4]"}`}>
                 <div className="w-full h-full">
                     <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt={obj.Description} src={obj.Image} />
                 </div>

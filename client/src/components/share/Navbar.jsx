@@ -17,9 +17,6 @@ export const NavBar = ({open,setOpen}) => {
     return(
         <header className="nav-bar">
             <nav>
-                <button className="md:hidden flex text-primary hover:opacity-70 transition-opacity duration-200">
-                    <span className="material-symbols-outlined" data-icon="search">search</span>
-                </button>
                 <div className="flex-ic gap-xl">
                     <NavLink to="/home" ><h1>LUXE</h1></NavLink>                    
                     <div className="hidden md:flex gap-md">

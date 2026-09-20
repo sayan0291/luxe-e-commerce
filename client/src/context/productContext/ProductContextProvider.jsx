@@ -13,7 +13,7 @@ const ProductProvider = ({children}) => {
         setLoading(true);
         setError(null);
         setCategoryParam(category)
-
+        console.log(category)
         try {
             const data = await apiHandle(category);
             setProducts(data);

@@ -21,6 +21,7 @@ export const Shoping = () => {
     const [btn,setbtn] =  useState(true);
     const { products,fetchProducts,loading,categoryParam } = useProduct()
     const queryTerm = searchParams.get('category') || "mens-wear";
+    console.log(categoryParam)
 
 
     useEffect(() => {
