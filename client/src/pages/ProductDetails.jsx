@@ -13,7 +13,6 @@ export const ProductDetails = () => {
     if (!obj) {
         return <div>No product data found</div>;
     }
-    console.log(obj)
 
     return(
         <div className="p-sm pt-30 flex-jc-ic flex-col gap-xl">

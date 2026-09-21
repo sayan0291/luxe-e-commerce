@@ -19,17 +19,15 @@ export const Shoping = () => {
     const [open,setOpen] = useState(false);
     const [showCount,setShowCount] =  useState(10);
     const [btn,setbtn] =  useState(true);
-    const { products,fetchProducts,loading,categoryParam } = useProduct()
+    const { products,fetchProducts,loading,categoryParam,setCategoryParam } = useProduct()
     const queryTerm = searchParams.get('category') || "mens-wear";
-    console.log(categoryParam)
-
-
+    const category = categoryMapping[queryTerm]
+    
     useEffect(() => {
-        const getProducts = async () => {
-            await fetchProducts(categoryMapping[queryTerm])
-        }
-        getProducts();
+        setCategoryParam(category)
+        fetchProducts(category)
     },[queryTerm])
+        
 
     const handleClick = (product) => {
         navigate("/product-details", {state: {product}})
