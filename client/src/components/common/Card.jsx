@@ -150,3 +150,94 @@ export const SearchInput = () => {
         </>
     )
 }
+
+export const CartItem = ({ item, updateQty, removeItem }) => {
+        const [isRemoving, setIsRemoving] = useState(false);
+
+        const handleRemove = () => {
+            setIsRemoving(true);
+            setTimeout(() => {
+                removeItem(item.id);
+            }, 300);
+        };
+
+        return (
+            <div className="cart-item group flex flex-col sm:flex-row gap-md pb-md border-b border-outline-variant/30 cart-item-transition" style={{ opacity: isRemoving ? 0 : 1, transform: isRemoving ? 'translateX(20px)' : 'none' }}>
+                <div className="w-full sm:w-40 aspect-[3/4] bg-surface-container-low overflow-hidden">
+                    <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt={item.alt} src={item.image} alt={item.name} />
+                </div>
+                <div className="flex-1 flex flex-col justify-between py-base">
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <h3 className="font-headline-md text-headline-md text-primary">{item.name}</h3>
+                            <p className="font-body-md text-body-md text-secondary">{item.variant}</p>
+                        </div>
+                        <p className="font-headline-md text-headline-md text-primary">${item.price.toFixed(2)}</p>
+                    </div>
+                    <div className="flex items-center justify-between mt-md">
+                        <div className="flex items-center border border-outline-variant rounded-lg px-xs py-1">
+                            <button className="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors" onClick={() => updateQty(item.id, -1)}><span className="material-symbols-outlined text-[20px]">remove</span></button>
+                            <span className="font-label-md text-label-md px-md quantity-display">{item.quantity}</span>
+                            <button className="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors" onClick={() => updateQty(item.id, 1)}><span className="material-symbols-outlined text-[20px]">add</span></button>
+                        </div>
+                        <button className="font-label-sm text-label-sm uppercase tracking-wider text-secondary hover:text-error transition-colors flex items-center gap-xs" onClick={handleRemove}>
+                            <span className="material-symbols-outlined text-[18px]">delete</span>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+export const OrderSummary = ({ subtotal, tax, total }) => (
+        <aside className="lg:col-span-4 h-fit sticky top-28">
+            <div className="bg-surface-container-low p-lg border border-outline-variant/20">
+                <h2 className="font-headline-md text-headline-md text-primary mb-md">Order Summary</h2>
+                <div className="space-y-sm mb-lg">
+                    <div className="flex justify-between">
+                        <span className="font-body-md text-body-md text-secondary">Subtotal</span>
+                        <span className="font-label-md text-label-md text-primary">${subtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="font-body-md text-body-md text-secondary">Estimated Shipping</span>
+                        <span className="font-label-md text-label-md text-primary">$0.00</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="font-body-md text-body-md text-secondary">Estimated Tax</span>
+                        <span className="font-label-md text-label-md text-primary">${tax.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                    </div>
+                </div>
+                <div className="pt-md border-t border-outline-variant/30 mb-lg">
+                    <div className="flex justify-between">
+                        <span className="font-headline-md text-headline-md text-primary">Total</span>
+                        <span className="font-headline-md text-headline-md text-primary">${total.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                    </div>
+                </div>
+                <button className="w-full bg-primary text-on-primary py-md font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity mb-sm">
+                    Proceed to Checkout
+                </button>
+                <div className="flex flex-col gap-xs mt-lg">
+                    <p className="font-label-sm text-label-sm text-secondary flex items-center gap-xs">
+                        <span className="material-symbols-outlined text-[16px]">lock</span>
+                        Secure encrypted checkout
+                    </p>
+                    <p className="font-label-sm text-label-sm text-secondary flex items-center gap-xs">
+                        <span className="material-symbols-outlined text-[16px]">local_shipping</span>
+                        Complimentary shipping on all orders
+                    </p>
+                </div>
+            </div>
+        </aside>
+);
+
+export const EmptyState = () => (
+    <div className="flex flex-col items-center justify-center py-xl text-center">
+        <span className="material-symbols-outlined text-[80px] text-outline-variant mb-md">shopping_bag</span>
+        <h2 className="font-headline-lg text-headline-lg text-primary mb-sm">Your Bag is Empty</h2>
+        <p className="font-body-md text-body-md text-secondary max-w-sm mb-lg">Looks like you haven't added anything to your cart yet. Explore our latest collections and find something you love.</p>
+        <a className="inline-block border border-primary px-xl py-md font-label-md text-label-md uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+            Continue Shopping
+        </a>
+    </div>
+);
