@@ -20,6 +20,9 @@ const userSchema = new Schema(
             type: String,
             required: true,
             minLength: [8,"minimum 8 characters"]
+        },
+        avatar: {
+            type: String
         }
     }, {timestamps: true}
 )

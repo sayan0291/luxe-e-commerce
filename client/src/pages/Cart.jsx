@@ -7,7 +7,6 @@ export const Cart = () => {
                 <Header className="mb-gutter" title="Your Bag" />
                 <p className="font-body-lg text-body-lg text-secondary mt-xs max-w-2xl">Review your selection before proceeding to checkout.</p>
             </div>
-            
         </>
     )
 }
