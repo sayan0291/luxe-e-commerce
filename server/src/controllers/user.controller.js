@@ -1,4 +1,3 @@
-import { validationRequest } from "../middlewars/validators.js";
 import { ApiError } from "../utils/ApiError.js";
 import { asynHandler } from "../utils/asyncHandler.js";
 import { registerBackendSchema } from "../utils/formValidation.js";
@@ -20,19 +19,21 @@ export const userRegister = asynHandler( async (req,res) => {
 
     const result = registerBackendSchema.safeParse(req.body);
 
-    // console.log(result)
+    console.log(result)
 
-    // const existedUser = User.findOne({
-    //     $or: [{ userName },{email}]
-    // })
+    const existedUser = User.findOne({
+        $or: [ { userName } , { email } ]
+    })
 
-    // if(existedUser) {
-    //     throw new ApiError(401, "The user name or email is already existed")
-    // }
+    
+    if(existedUser) {
+        throw new ApiError(401, "The user name or email is already existed")
+    }
+    console.log("here i am after user check")
 
     const reqfiles = req.file?.avatar[0]?.path;
 
-    console.log(reqfiles)
+    console.log("here i am after multer called",reqfiles)
 
-}
+    }
 )
