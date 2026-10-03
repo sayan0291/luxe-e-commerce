@@ -1,6 +1,6 @@
 import {v2 as cloudinary } from "cloudinary"
 import fs from "fs"
-import CLOUD_NAME from "../constants.js"
+import { CLOUD_NAME } from "../constants.js"
 
 cloudinary.config({
     cloud_name: CLOUD_NAME,
@@ -10,15 +10,24 @@ cloudinary.config({
 
 export const cloudinaryData = async (localFilePath) => {
     try {
+        console.log("i am called")
+        console.log(localFilePath)
         if(!localFilePath) return null;
-        const response = cloudinary.uploader.upload(localFilePath, {
+        //upload the file on clodinary
+        const response = await cloudinary.uploader.upload(localFilePath, {
             resource_type: "auto"
         })
 
+        //check the response after successfull upload of the file
+
         console.log("clodinary upload successfull",response)
+        fs.unlinkSync(localFilePath) //also remove after successfull submition so the disk storage always clean
         return response;
 
-    } catch (error) {
+    } catch (error) { 
+
+        //remove the file resource after the unsuceessfull clodinary submition
+
         fs.unlinkSync(localFilePath);
         console.log("clodinary upload error",error);
         return null;
