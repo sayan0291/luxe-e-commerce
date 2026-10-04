@@ -10,7 +10,6 @@ cloudinary.config({
 
 export const cloudinaryData = async (localFilePath) => {
     try {
-        console.log("i am called")
         console.log(localFilePath)
         if(!localFilePath) return null;
         //upload the file on clodinary

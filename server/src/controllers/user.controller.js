@@ -15,34 +15,29 @@ export const userRegister = asynHandler( async (req,res) => {
     //check for user creation
     //response check
     
-    const { userName,email,password } = req.body;
+    const { firstName,lastName,email,password } = req.body;
 
+    
     const result = registerBackendSchema.safeParse({body: req.body});
-
+    
     if (!result.success) {
         result.error.issues.forEach(issue => {
             throw new ApiError(400, issue.message)
         })
     }
-
-    // const existedUser = await User.findOne({
-    //     $or: [ { userName } , { email } ]
-    // })
-
-    // console.log("after mongoose query",existedUser)
-
     
-    // if(existedUser) {
-    //     throw new ApiError(401, "The user name or email is already existed")
-    // }
+    const existedUser = await User.findOne({
+        $or: [ { email } ]
+    })
+    
+    
+    if(existedUser) {
+        throw new ApiError(401, "The user name or email is already existed")
+    }
+    
+    const reqfiles = req.file.path;
 
-    // const reqfiles = req.file?.avatar[0]?.path;
-
-    // console.log("muter called",reqfiles);
-
-    // const avatar = await cloudinaryData(reqfiles);
-
-    // console.log(avatar)
+    const avatar = await cloudinaryData(reqfiles);
 
     }
 )

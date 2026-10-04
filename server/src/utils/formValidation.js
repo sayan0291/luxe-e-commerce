@@ -5,7 +5,8 @@ const strictEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 // 📝 1. BACKEND REGISTRATION SCHEMA
 export const registerBackendSchema = z.object({
   body: z.object({
-    username: z.string().min(1, "First name is required").trim(),
+    firstName: z.string().min(1, "First name is required").trim(),
+    lastName: z.string().min(1, "Last name is required").trim(),
     email: z
       .string()
       .min(1, "Email is required")

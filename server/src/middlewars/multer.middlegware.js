@@ -11,7 +11,6 @@ const storage = multer.diskStorage({
             if(err) return cb(err)
             const extName = path.extname(file.originalname)
             const filename = raw.toString('hex') + extName
-            
             return cb(null,filename);
         })
     }
