@@ -39,5 +39,7 @@ export const userRegister = asynHandler( async (req,res) => {
 
     const avatar = await cloudinaryData(reqfiles);
 
+    console.log(avatar)
+
     }
 )
